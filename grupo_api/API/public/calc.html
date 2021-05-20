@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/cadastro.css">
+    <link rel="stylesheet" href="css/calc.css">
+    <title>Calculadora</title>
+</head>
+
+<body>
+     <!--   CABEÇALHO   -->
+     <div class="header">
+        <div class="container">
+            <img class="logo" src="img/lettutech2.png" alt="Logo lettutech" />
+            <nav>
+                <ul>
+                    <li><a href="index.html">Serviços</a></li>
+                    <li><a href="contato.html">Sobre nós</a></li>
+                    <li><a href="cadastro.html">Aderir</a></li>
+                    <li><a href="login.html">Login</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <center>
+        <div class="calculadora">
+
+            <img src="https://reygif.com/media/calculadora-64884.gif" alt="calculadora" class="img">
+
+            <h1>Calculadora</h1>
+
+            Hectares: 
+                <br><input type="text" id="inp_hectares"> <br><br>
+            
+            Safras: 
+                <br><input type="text" id="inp_safras"> <br><br>
+            
+            Valor do pé de alface: 
+                <br><input type="text" id="inp_valoralfa"> <br><br>
+        
+            <button onclick="calcular()">Calcular</button> <br>
+            
+            <div id="msg"></div>
+        </div>
+    </center>
+
+    <!--   RODAPE   -->
+    <div class="footer">
+        <div class="container">
+            <div class="todas_footer_box">
+                <!--sobre nós-->
+                <div class="footer_text">
+                    <h3>Empresa</h3>
+                    <img src="img/lettutech3.png" alt="logo" />
+                </div>
+                <!--contato-->
+                <div class="footer_text">
+                    <h3>Contato</h3>
+                    <span>
+                        (11)98765-4321 <br />
+                        equipelettutech@gmail.com
+                    </span>
+                </div>
+                <!--social medias-->
+                <div class="footer_text">
+                    <h3>Redes sociais</h3>
+                    <img src="img/telegram.png" alt="telegram" id="telegram" title="telegram"/>
+                    <a href="https://www.facebook.com/Lettutech-100352942202861["> <img src="img/face.png" alt="facebook" id="facebook" title="facebook"/> </a>
+                    <a href="https://www.instagram.com/lettutech/?hl=pt-br"> <img src="img/insta.png" alt="instagram" id="instagram" title="instagram"/> </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+</body>
+
+</html>
+<script>
+
+    function calcular() {
+
+        var hectares = Number(inp_hectares.value);
+        var safras = Number(inp_safras.value);
+        var valoralfa = Number(inp_valoralfa.value);
+
+        /* é gasto por dia 25000L de água por hectar que resulta em 56 reais
+             90 é o total de dias de uma safra */
+
+        var custo_agua_sem_solucao = 56 * hectares * 90 * safras;                    
+        var custo_agua_com_solucao = custo_agua_sem_solucao * 0.63; // 63% do gasto de água que aconteceria sem nossa solução
+
+        /* 5800 é o valor gasto na plantação de 1 hacter em uma safra */
+
+        var custo_total_sem_solucao = custo_agua_sem_solucao + hectares * 5800 * safras;
+        var custo_total_com_solucao = custo_agua_com_solucao + hectares * 5800 * safras;
+
+        // 1 pé de alface oculpa 5cm² então em 1 hectar possui 200 mil pé de alfaces
+
+        var quantidade_pes_de_aface_com_solucao = hectares * 200000 * safras * valoralfa;
+        var quantidade_pes_de_aface_sem_solucao = quantidade_pes_de_aface_com_solucao * 0.8;
+
+        /* rendimento sem a solução recebe a quantidade de pes de alface sem a solucao
+            subtraído pelo custo que solução tráz */
+
+        var rendimento_sem_solucao = quantidade_pes_de_aface_sem_solucao - custo_total_sem_solucao;
+        rendimento_sem_solucao.toFixed(2);
+
+        var rendimento_com_solucao = quantidade_pes_de_aface_com_solucao - custo_total_com_solucao;
+        rendimento_com_solucao.toFixed(2);
+
+        var diferenca_entre_rendimentos = rendimento_com_solucao - rendimento_sem_solucao;
+        diferenca_entre_rendimentos.toFixed(2);
+
+        // um sensor capta a umidade em 30m². Então em 1 hectar utiliza cerca de 334 sensores
+
+        var sensores_umidade_lettutech = 334 * hectares;
+        var sensores_temperatura_lettutech = 334 * hectares;
+        var total_sensores = sensores_temperatura_lettutech + sensores_umidade_lettutech;
+
+        var implantacao_lettutech = total_sensores * 75;
+        implantacao_lettutech.toFixed(2);
+
+        var custos_mensais_lettutech = total_sensores * 20;
+        custos_mensais_lettutech.toFixed(2);
+
+        msg.innerHTML =
+        `<span class="result">Valor do rendimento sem o sensor R$ ${rendimento_sem_solucao.toFixed(2)} </span><br>`;
+
+        msg.innerHTML +=
+        `<span class="result">Valor do rendimento com o sensor R$ ${rendimento_com_solucao.toFixed(2)} </span><br>`;
+
+        msg.innerHTML +=
+        `<span class="result">Valor da diferença de rendimento R$ ${diferenca_entre_rendimentos.toFixed(2)} </span><br>`;
+
+        msg.innerHTML +=
+        `<span class="result">Quantidade de sensores: ${total_sensores} <br>
+        Custo de compra: R$ ${implantacao_lettutech.toFixed(2)} <br> 
+        Custo mensal: R$ ${custos_mensais_lettutech.toFixed(2)}</span>`;
+
+    }
+
+</script>

@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="ptbr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/dashboard1.css" />
+    <link rel="stylesheet" href="css/dash-temp.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.0.2/chart.min.js"
+    integrity="sha512-dnUg2JxjlVoXHVdSMWDYm2Y5xcIrJg1N+juOuRi0yLVkku/g26rwHwysJDAMwahaDfRpr1AxFz43ktuMPr/l1A=="
+    crossorigin="anonymous">
+    </script>
+    <title>Dashboard - Umidade</title>
+</head>
+<body>
+
+    <!--   CABEÇALHO   -->
+    <div class="header">
+        <div class="container">
+            <img class="logo" src="img/lettutech2.png" alt="Logo lettutech" />
+            <nav>
+                <ul>
+                    <li><a href="dash-temp.html">Temperatura</a></liass=>
+                    <li><a href="dash-umid.html" style="color:#00913D">Umidade</a></li>
+                    <li><a href="dashboard-geral.html">Geral</a></li>
+                    <li><a href="index.html">Sair</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <!-- APRESENTAÇÃO -->
+    <div class="container-apr">
+        <h1>Gráfico de umidade</h1>
+        <h2>Veja a umidade de suas fazendas:</h2>
+        <img src="img/alerts2.png" alt="img de alertas">
+        <br>
+    </div>
+    
+    <!-- GRAFICOS -->
+    <div class="container-graficos">
+
+        <div class="box-grafico">
+            <div id="grafico1" class="grafico-ind">
+                <span>Fazenda 1</span>
+                <canvas id="myChart1"></canvas>
+
+                <span>Alerta atual:</span>
+                <div class="div_alerta" id="alerta1"></div>
+                <span id="mens_alerta1"></span>
+                
+            </div>
+        </div>
+        <div class="box-grafico">
+            <div id="grafico2" class="grafico-ind">
+                <span>Fazenda 2</span>
+                <canvas id="myChart2"></canvas>
+
+                <span>Alerta atual:</span>
+                <div class="div_alerta" id="alerta2"></div>
+                <span id="mens_alerta2"></span>
+
+            </div>
+        </div>
+        <div class="box-grafico">
+            <div id="grafico3" class="grafico-ind">
+                <span>Fazenda 3</span>
+                <canvas id="myChart3"></canvas>
+
+                <span>Alerta atual:</span>
+                <div class="div_alerta" id="alerta3"></div>
+                <span id="mens_alerta3"></span>
+
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
+
+<script>
+
+    //DADOS GERADOS ALEATÓRIAMENTE
+    var umidade1 = parseInt(Math.random() * 45 + 1);
+    var umidade2 = parseInt(Math.random() * 45 + 1);
+    var umidade3 = parseInt(Math.random() * 45 + 1);
+    var umidade4 = parseInt(Math.random() * 45 + 1);
+    var umidade5 = parseInt(Math.random() * 45 + 1);
+    var umidade6 = parseInt(Math.random() * 45 + 1);
+    var umidade7 = parseInt(Math.random() * 45 + 1);
+    var umidade8 = parseInt(Math.random() * 45 + 1);
+    var umidade9 = parseInt(Math.random() * 45 + 1);
+
+    //IF PARA DEFINIR AS CORES E OS ALERTAS
+    //IF UMIDADE 1
+    if(umidade1 >= 0){
+        if(umidade1 < 5){
+            var cor1 = '#1a3150';
+        } else if(umidade1 < 7){
+            var cor1 = '#2f5d99';
+        } else if(umidade1 < 10){
+            var cor1 = '#1d78ee';
+        } else if(umidade1 < 27){
+            var cor1 = '#4ec23f';
+        } else if(umidade1 < 29){
+            var cor1 = '#e4e020';
+        } else if(umidade1 < 31){
+            var cor1 = '#e48820';
+        } else if(umidade1 >= 31){
+            var cor1 = '#bd1b1b';
+        }
+    }
+
+    //IF UMIDADE 2
+    if(umidade2 >= 0){
+        if(umidade2 < 5){
+            var cor2 = '#1a3150';
+        } else if(umidade2 < 7){
+            var cor2 = '#2f5d99';
+        } else if(umidade2 < 10){
+            var cor2 = '#1d78ee';
+        } else if(umidade2 < 27){
+            var cor2 = '#4ec23f';
+        } else if(umidade2 < 29){
+            var cor2 = '#e4e020';
+        } else if(umidade2 < 31){
+            var cor2 = '#e48820';
+        } else if(umidade2 >= 31){
+            var cor2 = '#bd1b1b';
+        }
+    }
+
+    //IF UMIDADE 3
+    if(umidade3 >= 0){
+        if(umidade3 < 5){
+            var umidade3 = '#1a3150';
+            alerta1.style.backgroundColor = `${cor3}`;
+            mens_alerta1.innerHTML = `ATENÇÃO! Sua umidade está muito baixa!`;
+        } else if(umidade3 < 7){
+            var umidade3 = '#2f5d99';
+            alerta1.style.backgroundColor = `${cor3}`;
+        } else if(umidade3 < 10){
+            var cor3 = '#1d78ee';
+            alerta1.style.backgroundColor = `${cor3}`;
+        } else if(umidade3 < 27){
+            var cor3 = '#4ec23f';
+            alerta1.style.backgroundColor = `${cor3}`;
+        } else if(umidade3 < 29){
+            var cor3 = '#e4e020';
+            alerta1.style.backgroundColor = `${cor3}`;
+        } else if(umidade3 < 31){
+            var cor3 = '#e48820';
+            alerta1.style.backgroundColor = `${cor3}`;
+        } else if(umidade3 >= 31){
+            var cor3 = '#bd1b1b';
+            alerta1.style.backgroundColor = `${cor3}`;
+            mens_alerta1.innerHTML = `ATENÇÃO! Sua umidade está muito alta!`;
+        }
+    }
+
+    //IF UMIDADE 4
+    if(umidade4 >= 0){
+        if(umidade4 < 5){
+            var cor4 = '#1a3150';
+        } else if(umidade4 < 7){
+            var cor4 = '#2f5d99';
+        } else if(umidade4 < 10){
+            var cor4 = '#1d78ee';
+        } else if(umidade4 < 27){
+            var cor4 = '#4ec23f';
+        } else if(umidade4 < 29){
+            var cor4 = '#e4e020';
+        } else if(umidade4 < 31){
+            var cor4 = '#e48820';
+        } else if(umidade4 >= 31){
+            var cor4 = '#bd1b1b';
+        }
+    }
+
+    //IF UMIDADE 5
+    if(umidade5 >= 0){
+        if(umidade5 < 5){
+            var cor5 = '#1a3150';
+        } else if(umidade5 < 7){
+            var cor5 = '#2f5d99';
+        } else if(umidade5 < 10){
+            var cor5 = '#1d78ee';
+        } else if(umidade5 < 27){
+            var cor5 = '#4ec23f';
+        } else if(umidade5 < 29){
+            var cor5 = '#e4e020';
+        } else if(umidade5 < 31){
+            var cor5 = '#e48820';
+        } else if(umidade5 >= 31){
+            var cor5 = '#bd1b1b';
+        }
+    }
+
+    //IF UMIDADE 6
+    if(umidade6 >= 0){
+        if(umidade6 < 5){
+            var cor6 = '#1a3150';
+            alerta2.style.backgroundColor = `${cor6}`;
+            mens_alerta2.innerHTML = `ATENÇÃO! Sua umidade está muito baixa!`;
+        } else if(umidade6 < 7){
+            var cor6 = '#2f5d99';
+            alerta2.style.backgroundColor = `${cor6}`;
+        } else if(umidade6 < 10){
+            var cor6 = '#1d78ee';
+            alerta2.style.backgroundColor = `${cor6}`;
+        } else if(umidade6 < 27){
+            var cor6 = '#4ec23f';
+            alerta2.style.backgroundColor = `${cor6}`;
+        } else if(umidade6 < 29){
+            var cor6 = '#e4e020';
+            alerta2.style.backgroundColor = `${cor6}`;
+        } else if(umidade6 < 31){
+            var cor6 = '#e48820';
+            alerta2.style.backgroundColor = `${cor6}`;
+        } else if(umidade6 >= 31){
+            var umidade6 = '#bd1b1b';
+            alerta2.style.backgroundColor = `${cor6}`;
+            mens_alerta2.innerHTML = `ATENÇÃO! Sua umidade está muito alta!`;
+        }
+    }
+
+    //IF UMIDADE 7
+    if(umidade7 >= 0){
+        if(umidade7 < 5){
+            var cor7 = '#1a3150';    
+        } else if(umidade7 < 7){
+            var cor7 = '#2f5d99';
+        } else if(umidade7 < 10){
+            var cor7 = '#1d78ee';
+        } else if(umidade7 < 27){
+            var cor7 = '#4ec23f';
+        } else if(umidade7 < 29){
+            var cor7 = '#e4e020';
+        } else if(umidade7 < 31){
+            var cor7 = '#e48820';
+        } else if(umidade7 >= 31){
+            var cor7 = '#bd1b1b';
+        }
+    }
+
+    //IF UMIDADE 8
+    if(umidade8 >= 0){
+        if(umidade8 < 5){
+            var cor8 = '#1a3150';
+        } else if(umidade8 < 7){
+            var cor8 = '#2f5d99';
+        } else if(umidade8 < 10){
+            var cor8 = '#1d78ee';
+        } else if(umidade8 < 27){
+            var cor8 = '#4ec23f';
+        } else if(umidade8 < 29){
+            var cor8 = '#e4e020';
+        } else if(umidade8 < 31){
+            var cor8 = '#e48820';
+        } else if(umidade8 >= 31){
+            var cor8 = '#bd1b1b';
+        }
+    }
+
+    //IF UMIDADE 9
+    if(umidade9 >= 0){
+        if(umidade9 < 5){
+            var cor9 = '#1a3150';
+            alerta3.style.backgroundColor = `${cor9}`;
+            mens_alerta3.innerHTML = `ATENÇÃO! Sua umidade está muito baixa!`;
+        } else if(umidade9 < 7){
+            var cor9 = '#2f5d99';
+            alerta3.style.backgroundColor = `${cor9}`;
+        } else if(umidade9 < 10){
+            var cor9 = '#1d78ee';
+            alerta3.style.backgroundColor = `${cor9}`;
+        } else if(umidade9 < 27){
+            var cor9 = '#4ec23f';
+            alerta3.style.backgroundColor = `${cor9}`;
+        } else if(umidade9 < 29){
+            var cor9 = '#e4e020';
+            alerta3.style.backgroundColor = `${cor9}`;
+        } else if(umidade9 < 31){
+            var cor9 = '#e48820';
+            alerta3.style.backgroundColor = `${cor9}`;
+        } else if(umidade9 >= 31){
+            var cor9 = '#bd1b1b';
+            alerta3.style.backgroundColor = `${cor9}`;
+            mens_alerta3.innerHTML = `ATENÇÃO! Sua umidade está muito alta!`;
+        }
+    }
+    
+
+    //GRAFICO 1
+    var ctx1 = document.getElementById('myChart1').getContext('2d');
+
+    var myChart1 = new Chart(ctx1, {
+        type: 'bar',
+        data: {
+            labels: ['11:30', '12:30', '13:30'],
+            datasets: [{
+                label: 'Umidade x Periodo',
+                data: [umidade1, umidade2, umidade3],
+                backgroundColor: [
+                    `${cor1}`,
+                    `${cor2}`,
+                    `${cor3}`
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        },
+    });
+
+    //GRAFICO 2
+    var ctx2 = document.getElementById('myChart2').getContext('2d');
+
+    var myChart2 = new Chart(ctx2, {
+        type: 'bar',
+        data: {
+            labels: ['11:30', '12:30', '13:30'],
+            datasets: [{
+                label: 'Umidade x Periodo',
+                data: [umidade4, umidade5, umidade6],
+                backgroundColor: [
+                    `${cor4}`,
+                    `${cor5}`,
+                    `${cor6}`
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        },
+    });
+
+    //GRAFICO 3
+    var ctx3 = document.getElementById('myChart3').getContext('2d');
+
+    var myChart3 = new Chart(ctx3, {
+        type: 'bar',
+        data: {
+            labels: ['11:30', '12:30', '13:30'],
+            datasets: [{
+                label: 'Umidade x Periodo',
+                data: [umidade7, umidade8, umidade9],
+                backgroundColor: [
+                    `${cor7}`,
+                    `${cor8}`,
+                    `${cor9}`
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        },
+    });
+
+
+</script>

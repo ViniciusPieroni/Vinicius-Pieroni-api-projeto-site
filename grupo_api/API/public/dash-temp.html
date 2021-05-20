@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="ptbr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/dashboard1.css" />
+    <link rel="stylesheet" href="css/dash-temp.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.0.2/chart.min.js"
+    integrity="sha512-dnUg2JxjlVoXHVdSMWDYm2Y5xcIrJg1N+juOuRi0yLVkku/g26rwHwysJDAMwahaDfRpr1AxFz43ktuMPr/l1A=="
+    crossorigin="anonymous">
+    </script>
+    <title>Dashboard - Temperatura</title>
+</head>
+<body>
+
+    <!--   CABEÇALHO   -->
+    <div class="header">
+        <div class="container">
+            <img class="logo" src="img/lettutech2.png" alt="Logo lettutech" />
+            <nav>
+                <ul>
+                    <li><a href="dash-temp.html" style="color:#00913D">Temperatura</a></liass=>
+                    <li><a href="dash-umid.html">Umidade</a></li>
+                    <li><a href="dashboard-geral.html">Geral</a></li>
+                    <li><a href="index.html">Sair</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <!-- APRESENTAÇÃO -->
+    <div class="container-apr">
+        <h1>Gráfico de temperatura</h1>
+        <h2>Veja a temperatura de suas fazendas:</h2>
+        <img src="img/alerts.png" alt="img de alertas">
+        <br>
+    </div>
+    
+    <!-- GRAFICOS -->
+    <div class="container-graficos">
+
+        <div class="box-grafico">
+            <div id="grafico1" class="grafico-ind">
+                <span>Fazenda 1</span>
+                <canvas id="myChart1"></canvas>
+
+                <span>Alerta atual:</span>
+                <div class="div_alerta" id="alerta1"></div>
+                <span id="mens_alerta1"></span>
+                
+            </div>
+        </div>
+        <div class="box-grafico">
+            <div id="grafico2" class="grafico-ind">
+                <span>Fazenda 2</span>
+                <canvas id="myChart2"></canvas>
+
+                <span>Alerta atual:</span>
+                <div class="div_alerta" id="alerta2"></div>
+                <span id="mens_alerta2"></span>
+
+            </div>
+        </div>
+        <div class="box-grafico">
+            <div id="grafico3" class="grafico-ind">
+                <span>Fazenda 3</span>
+                <canvas id="myChart3"></canvas>
+
+                <span>Alerta atual:</span>
+                <div class="div_alerta" id="alerta3"></div>
+                <span id="mens_alerta3"></span>
+
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
+
+<script>
+
+    // function select(){
+    //     var tipo = Number(id_tipo.value);
+    //     var grafico = '';
+        
+    //     if(tipo == 1){
+    //         grafico = 'bar';
+    //     } else {
+    //         grafico = 'line';
+    //     }
+    // }
+
+    //DADOS GERADOS ALEATÓRIAMENTE
+    var temp1 = parseInt(Math.random() * 50 + 1);
+    var temp2 = parseInt(Math.random() * 50 + 1);
+    var temp3 = parseInt(Math.random() * 50 + 1);
+    var temp4 = parseInt(Math.random() * 50 + 1);
+    var temp5 = parseInt(Math.random() * 50 + 1);
+    var temp6 = parseInt(Math.random() * 50 + 1);
+    var temp7 = parseInt(Math.random() * 50 + 1);
+    var temp8 = parseInt(Math.random() * 50 + 1);
+    var temp9 = parseInt(Math.random() * 50 + 1);
+
+    //IF PARA DEFINIR AS CORES E OS ALERTAS
+    //IF TEMPERATURA 1
+    if(temp1 >= 0){
+        if(temp1 < 5){
+            var cor1 = '#1a3150';
+        } else if(temp1 < 7){
+            var cor1 = '#2f5d99';
+        } else if(temp1 < 10){
+            var cor1 = '#1d78ee';
+        } else if(temp1 < 27){
+            var cor1 = '#4ec23f';
+        } else if(temp1 < 29){
+            var cor1 = '#e4e020';
+        } else if(temp1 < 31){
+            var cor1 = '#e48820';
+        } else if(temp1 >= 31){
+            var cor1 = '#bd1b1b';
+        }
+    }
+
+    //IF TEMPERATURA 2
+    if(temp2 >= 0){
+        if(temp2 < 5){
+            var cor2 = '#1a3150';
+        } else if(temp2 < 7){
+            var cor2 = '#2f5d99';
+        } else if(temp2 < 10){
+            var cor2 = '#1d78ee';
+        } else if(temp2 < 27){
+            var cor2 = '#4ec23f';
+        } else if(temp2 < 29){
+            var cor2 = '#e4e020';
+        } else if(temp2 < 31){
+            var cor2 = '#e48820';
+        } else if(temp2 >= 31){
+            var cor2 = '#bd1b1b';
+        }
+    }
+
+    //IF TEMPERATURA 3
+    if(temp3 >= 0){
+        if(temp3 < 5){
+            var cor3 = '#1a3150';
+            alerta1.style.backgroundColor = `${cor3}`;
+            mens_alerta1.innerHTML = `ATENÇÃO! Sua temperatura está muito baixa!`;
+        } else if(temp3 < 7){
+            var cor3 = '#2f5d99';
+            alerta1.style.backgroundColor = `${cor3}`;
+        } else if(temp3 < 10){
+            var cor3 = '#1d78ee';
+            alerta1.style.backgroundColor = `${cor3}`;
+        } else if(temp3 < 27){
+            var cor3 = '#4ec23f';
+            alerta1.style.backgroundColor = `${cor3}`;
+        } else if(temp3 < 29){
+            var cor3 = '#e4e020';
+            alerta1.style.backgroundColor = `${cor3}`;
+        } else if(temp3 < 31){
+            var cor3 = '#e48820';
+            alerta1.style.backgroundColor = `${cor3}`;
+        } else if(temp3 >= 31){
+            var cor3 = '#bd1b1b';
+            alerta1.style.backgroundColor = `${cor3}`;
+            mens_alerta1.innerHTML = `ATENÇÃO! Sua temperatura está muito alta!`;
+        }
+    }
+
+    //IF TEMPERATURA 4
+    if(temp4 >= 0){
+        if(temp4 < 5){
+            var cor4 = '#1a3150';
+        } else if(temp4 < 7){
+            var cor4 = '#2f5d99';
+        } else if(temp4 < 10){
+            var cor4 = '#1d78ee';
+        } else if(temp4 < 27){
+            var cor4 = '#4ec23f';
+        } else if(temp4 < 29){
+            var cor4 = '#e4e020';
+        } else if(temp4 < 31){
+            var cor4 = '#e48820';
+        } else if(temp4 >= 31){
+            var cor4 = '#bd1b1b';
+        }
+    }
+
+    //IF TEMPERATURA 5
+    if(temp5 >= 0){
+        if(temp5 < 5){
+            var cor5 = '#1a3150';
+        } else if(temp5 < 7){
+            var cor5 = '#2f5d99';
+        } else if(temp5 < 10){
+            var cor5 = '#1d78ee';
+        } else if(temp5 < 27){
+            var cor5 = '#4ec23f';
+        } else if(temp5 < 29){
+            var cor5 = '#e4e020';
+        } else if(temp5 < 31){
+            var cor5 = '#e48820';
+        } else if(temp5 >= 31){
+            var cor5 = '#bd1b1b';
+        }
+    }
+
+    //IF TEMPERATURA 6
+    if(temp6 >= 0){
+        if(temp6 < 5){
+            var cor6 = '#1a3150';
+            alerta2.style.backgroundColor = `${cor6}`;
+            mens_alerta2.innerHTML = `ATENÇÃO! Sua temperatura está muito baixa!`;
+        } else if(temp6 < 7){
+            var cor6 = '#2f5d99';
+            alerta2.style.backgroundColor = `${cor6}`;
+        } else if(temp6 < 10){
+            var cor6 = '#1d78ee';
+            alerta2.style.backgroundColor = `${cor6}`;
+        } else if(temp6 < 27){
+            var cor6 = '#4ec23f';
+            alerta2.style.backgroundColor = `${cor6}`;
+        } else if(temp6 < 29){
+            var cor6 = '#e4e020';
+            alerta2.style.backgroundColor = `${cor6}`;
+        } else if(temp6 < 31){
+            var cor6 = '#e48820';
+            alerta2.style.backgroundColor = `${cor6}`;
+        } else if(temp6 >= 31){
+            var cor6 = '#bd1b1b';
+            alerta2.style.backgroundColor = `${cor6}`;
+            mens_alerta2.innerHTML = `ATENÇÃO! Sua temperatura está muito alta!`;
+        }
+    }
+
+    //IF TEMPERATURA 7
+    if(temp7 >= 0){
+        if(temp7 < 5){
+            var cor7 = '#1a3150';    
+        } else if(temp7 < 7){
+            var cor7 = '#2f5d99';
+        } else if(temp7 < 10){
+            var cor7 = '#1d78ee';
+        } else if(temp7 < 27){
+            var cor7 = '#4ec23f';
+        } else if(temp7 < 29){
+            var cor7 = '#e4e020';
+        } else if(temp7 < 31){
+            var cor7 = '#e48820';
+        } else if(temp7 >= 31){
+            var cor7 = '#bd1b1b';
+        }
+    }
+
+    //IF TEMPERATURA 8
+    if(temp8 >= 0){
+        if(temp8 < 5){
+            var cor8 = '#1a3150';
+        } else if(temp8 < 7){
+            var cor8 = '#2f5d99';
+        } else if(temp8 < 10){
+            var cor8 = '#1d78ee';
+        } else if(temp8 < 27){
+            var cor8 = '#4ec23f';
+        } else if(temp8 < 29){
+            var cor8 = '#e4e020';
+        } else if(temp8 < 31){
+            var cor8 = '#e48820';
+        } else if(temp8 >= 31){
+            var cor8 = '#bd1b1b';
+        }
+    }
+
+    //IF TEMPERATURA 9
+    if(temp9 >= 0){
+        if(temp9 < 5){
+            var cor9 = '#1a3150';
+            alerta3.style.backgroundColor = `${cor9}`;
+            mens_alerta3.innerHTML = `ATENÇÃO! Sua temperatura está muito baixa!`;
+        } else if(temp9 < 7){
+            var cor9 = '#2f5d99';
+            alerta3.style.backgroundColor = `${cor9}`;
+        } else if(temp9 < 10){
+            var cor9 = '#1d78ee';
+            alerta3.style.backgroundColor = `${cor9}`;
+        } else if(temp9 < 27){
+            var cor9 = '#4ec23f';
+            alerta3.style.backgroundColor = `${cor9}`;
+        } else if(temp9 < 29){
+            var cor9 = '#e4e020';
+            alerta3.style.backgroundColor = `${cor9}`;
+        } else if(temp9 < 31){
+            var cor9 = '#e48820';
+            alerta3.style.backgroundColor = `${cor9}`;
+        } else if(temp9 >= 31){
+            var cor9 = '#bd1b1b';
+            alerta3.style.backgroundColor = `${cor9}`;
+            mens_alerta3.innerHTML = `ATENÇÃO! Sua temperatura está muito alta!`;
+        }
+    }
+    
+
+    //GRAFICO 1
+    var ctx1 = document.getElementById('myChart1').getContext('2d');
+
+    var myChart1 = new Chart(ctx1, {
+        type: `bar`,
+        data: {
+            labels: ['11:30', '12:30', '13:30'],
+            datasets: [{
+                label: 'Temperatura x Periodo',
+                data: [temp1, temp2, temp3],
+                backgroundColor: [
+                    `${cor1}`,
+                    `${cor2}`,
+                    `${cor3}`
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        },
+    });
+
+    //GRAFICO 2
+    var ctx2 = document.getElementById('myChart2').getContext('2d');
+
+    var myChart2 = new Chart(ctx2, {
+        type: `bar`,
+        data: {
+            labels: ['11:30', '12:30', '13:30'],
+            datasets: [{
+                label: 'Temperatura x Periodo',
+                data: [temp4, temp5, temp6],
+                backgroundColor: [
+                    `${cor4}`,
+                    `${cor5}`,
+                    `${cor6}`
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        },
+    });
+
+    //GRAFICO 3
+    var ctx3 = document.getElementById('myChart3').getContext('2d');
+
+    var myChart3 = new Chart(ctx3, {
+        type: `bar`,
+        data: {
+            labels: ['11:30', '12:30', '13:30'],
+            datasets: [{
+                label: 'Temperatura x Periodo',
+                data: [temp7, temp8, temp9],
+                backgroundColor: [
+                    `${cor7}`,
+                    `${cor8}`,
+                    `${cor9}`
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        },
+    });
+
+
+</script>

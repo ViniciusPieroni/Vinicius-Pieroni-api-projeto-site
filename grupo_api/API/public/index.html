@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ptbr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/modal.css">
+    <title>Lettutech - Solutions</title>
+</head>
+
+<hr>
+<!--   CABEÇALHO   -->
+<div class="header">
+    <div class="container">
+        <img class="logo" src="img/lettutech2.png" alt="Logo lettutech" />
+        <nav>
+            <ul>
+                <li><a href="index.html" style="color:#00913D">Serviços</a></liass=>
+                    <li><a href="contato.html">Sobre nós</a></li>
+                    <li><a href="cadastro.html">Aderir</a></li>
+                    <li><a href="login.html">Login</a></li>
+            </ul>
+        </nav>
+    </div>
+</div>
+
+<!--   APRESENTAÇÃO   -->
+<div class="apr">
+    <div class="container">
+        <span class="titulo_apr">
+                Com a Lettutech seu plantio<br />
+                rende muito mais!
+            </span>
+        <br />
+        <a href="calc.html">
+            <button class="btn_apr">Simular economia</button>
+        </a>
+    </div>
+</div>
+<div class="linha_verde"></div>
+
+
+<!--   SERVIÇOS   -->
+<div class="QS">
+    <div class="container">
+        <h1 class="titulo_QS">Serviços</h1>
+        <div class="linha_titulo2"></div>
+        <p class="txt_QS">
+            Nós da Lettutech realizamos um controle de temperatura e umidade no seu plantio para podermos captar 
+            dados realmente necessários e mostrar informações para você, cliente, com alertas de excesso de temperatura, 
+            pouca umidade no solo em formato de gráficos para que você possa controlar seu plantio da melhor forma. 
+            Com nossos serviços você terá:
+        </p>
+    </div>
+    <!-- IMAGENS -->
+    <div class="imagens_PQ">
+        <div class="img_text_PQ">
+            <img src="img/money.png" alt="Economia" />
+            <h3 style="margin-top: -25px;">Economia</h3>
+            <p>
+                Com a nossa solução seus gastos com recursos irão diminuir e sua produção irá aumentar.
+                Garantindo assim maiores lucros para sua plantação!
+            </p>
+        </div>
+        <div class="img_text_PQ">
+            <img src="img/clock.png" alt="Produtividade" />
+            <h3>Produtividade</h3>
+            <p>
+                O seu plantio renderá muito mais e você terá cada vez mais produtos de alta qualidade!
+            </p>
+        </div>
+        <div class="img_text_PQ">
+            <img src="img/monitoring.png" alt="Controle" />
+            <h3>Controle</h3>
+            <p>
+                Você terá todas as alterações de temperatura e umidade do seu plantio!
+            </p>
+        </div>
+    </div>
+</div>
+
+<!--   COMO FAZEMOS ISSO   -->
+<div class="CF">
+    <div class="container">
+        <h1 class="titulo_QS">Como fazemos isso?</h1>
+        <div class="linha_titulo3"></div>
+        <div class="container_CF">
+            <div class="imagens_CF">
+                <img src="img/imagem_CF.png" alt="grafico" class="img_CF" />
+            </div>
+            <div class="txt_CF">
+                A equipe Lettutech te proporciona um feedback em tempo real de todas as mudanças de temperatura e umidade que estão acontecendo na sua fazenda. Instalamos os sensores
+                <b><a href="#abrirModal1" style="color: black;"> Sensor Higrômetro Esp8266 Nodemcu Esp32 </a></b> e o
+                <b><a href="#abrirModal2" style="color: black;"> LM35 </a></b> para ter a maior precisão possível.
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- a referencia #abrirModal1 está indicando a div que contem as tags abaixo -->
+<div id="abrirModal1" class="modal">
+
+    <!-- conteúdo do modal aqui -->
+    <div class="sensor1">
+        <h2> Higrômetro </h2>
+        <img src="img/Sensor_Umidade.png" alt="" class="img_m"><br>
+
+        <p><b> 
+                É através do potente <span id="verde"> Higrômetro </span> ligado ao arduino que nossa equipe mapeia a umidade ideal para o seu plantio. 
+                Gerando alertas em tempo real de acordo com a tabela acima.
+            </b></p>
+
+        <!-- x para fechar o modal e referenciado como # para ser "alvo" no target -->
+        <a href="#fechar" title="Fechar" class="fechar">x</a>
+    </div>
+</div>
+
+<div id="abrirModal2" class="modal">
+    <div class="sensor2">
+        <h2> LM35 </h2>
+        <img src="img/Temperatura.png" alt="" class="img_m">
+        <p><b> 
+                E através do <span id="verde"> LM35 </span>, nós da Lettutech informamos e enviamos o feedback peródico 
+                para que você saiba as margens de temperaturas ideais para seu plantio.
+            </b></p>
+        <a href="#fechar" title="fechar" class="fechar">x</a>
+    </div>
+</div>
+
+
+<div class="linha_verde"></div>
+
+<!--   RODAPE   -->
+<div class="footer">
+    <div class="container">
+        <div class="todas_footer_box">
+            <!--sobre nós-->
+            <div class="footer_text">
+                <h3>Empresa</h3>
+                <img src="img/lettutech3.png" alt="logo" />
+            </div>
+            <!--contato-->
+            <div class="footer_text">
+                <h3>Contato</h3>
+                <span>
+                        (11)98765-4321 <br />
+                        equipelettutech@gmail.com
+                    </span>
+            </div>
+            <!--social medias-->
+            <div class="footer_text">
+                <h3>Redes sociais</h3>
+                <img src="img/telegram.png" alt="telegram" id="telegram" title="telegram" />
+                <a href="https://www.facebook.com/Lettutech-100352942202861["> <img src="img/face.png" alt="facebook" id="facebook" title="facebook"/> </a>
+                <a href="https://www.instagram.com/lettutech/?hl=pt-br"> <img src="img/insta.png" alt="instagram" id="instagram" title="instagram"/> </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+
+</html>

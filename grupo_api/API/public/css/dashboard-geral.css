@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/*
+font-family: 'Poppins', sans-serif;
+font-family: 'Nunito Sans', sans-serif;
+*/
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.container_dash{
+    max-width: 97%;
+    margin: auto;
+}
+
+
+.img_parametro1 {       /* imagem de parametro com alertas de temperatura */ 
+    margin-top: 1.5vh;
+    text-align: center;
+}
+
+.img_parametro2 {       /* imagem de parametro com alertas de umidade */ 
+    text-align: center;
+}
+
+.caixa_maior {      /* caixa armazenando os gráficos das plantações */
+    display: inline-grid;
+    grid-template-columns: 24rem 24rem;
+    grid-gap: 0.4rem;
+    box-shadow: 1px 1px 3px #232323;
+    background-color: floralwhite;
+    border-radius: 0.5rem;
+    margin: 0.3rem;
+}
+
+
+/* .plantacao_titulo {
+    display: inline-block;
+} */
+
+.plantacao_titulo h1 {
+    width: max-content;
+    color: #00913D;
+    font-family: 'Poppins', sans-serif;
+    margin-left: 200px;
+    text-decoration: underline;
+}
+
+.plantacao_titulo span {
+    margin-left: 630px;
+}
+
+
+/* Propriedades da dashboard */
+
+.dashboard h1{
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.5rem;
+    color: #00913D;
+    text-align: center;
+    padding-top: 0.5vh;
+}
+
+.charts {       /* div onde fica os gráficos e suas opções   */
+    height: 20vw;
+}
+
+select {    /* caixa de seleção dos gráficos */
+    width: 120px;
+    height: 30px;
+    cursor: pointer;
+    background-color: #232323;
+    color: white;
+}
+
+
+/* Propriedades dos gráficos */
+
+.grafico_1 {
+    display: block;
+    width: 300px ;
+    height: 250px ;
+    margin: 0px 0px -100px 55px;
+}
+
+.grafico_2 {
+    display: none;
+    width: 300px;
+    height: 300px;
+    margin: 0px 0px -145px 60px;
+}
+
+.grafico_3 {
+    margin: auto;
+    display: none; 
+    width: 200px ;
+    height: 200px ;
+    margin: -10px 0px 0px 115px;
+}
+
+.grafico_4 {
+    margin: auto;
+    display: none; 
+    width: 200px ;
+    height: 200px ;
+    margin: 0px 0px 0px 120px;
+}
+
+/* Propriedades dos alertas */
+
+.alerta {
+    height: 20px;
+    background-color: aliceblue;
+    box-shadow: 1px 1px 3px #232323;
+}
+
+.caixa_alerta {
+    display: inline-grid;
+    grid-template-columns: 6rem 6rem 6rem;
+    grid-gap: 2rem;
+}
+
+.grafico_resultado {
+    margin: auto; 
+    width: 200px ;
+    height: 200px ;
+    margin: 0px 0px 0px 135px;
+}
+
+.caixa_maior_resultado {       /* caixa onde o resultado final será mostrado */
+    display: inline-grid;
+    grid-template-columns: 24rem 24rem;
+    grid-gap: 0.4rem;
+    box-shadow: 1px 1px 3px #232323;
+    background-color: lightcyan;
+    border-radius: 0.5rem;
+}
+
+/* .dashboard_resultado {      /* dashboard do resultado 
+    float: left;
+    display: inline-flex;
+} */

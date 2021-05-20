@@ -1,0 +1,1965 @@
+<!DOCTYPE html>
+<html lang="ptbr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard-geral.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.0.2/chart.min.js"
+        integrity="sha512-dnUg2JxjlVoXHVdSMWDYm2Y5xcIrJg1N+juOuRi0yLVkku/g26rwHwysJDAMwahaDfRpr1AxFz43ktuMPr/l1A=="
+        crossorigin="anonymous">
+        </script>
+    <title>Dashboard</title>
+</head>
+
+<body class="bg_img">
+
+    <!--   CABEÇALHO   -->
+    <div class="header">
+        <div class="container">
+            <img class="logo" src="img/lettutech2.png" alt="Logo lettutech" />
+            <nav>
+                <ul>
+                    <li><a href="dash-temp.html">Temperatura</a></liass=>
+                    <li><a href="dash-umid.html">Umidade</a></li>
+                    <li><a href="dashboard-geral.html" style="color:#00913D">Geral</a></li>
+                    <li><a href="index.html">Sair</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <div class="container_dash">
+
+    <!--   INDICE   -->
+    <div class="img_parametro1">
+        <img src="img/alerts.png" alt="img de alertas">
+    </div>
+    <div class="img_parametro2">
+        <img src="img/alerts2.png" alt="img de alertas">
+    </div> 
+
+    <div class="plantacao_titulo"> <h1> PLANTAÇÃO 1: <span> PLANTAÇÃO 2:</span></h1></div>
+    <!-- Dashboard da plantação 1 -->
+    <div class="caixa_maior">
+
+        <div class="dashboard">            
+            <div class="charts">
+                <h1>UMIDADE</h1>    <!-- Gráfico de umidade da plantação 1 -->
+                <select name="" id="op" onchange="selecionar()">
+                    <option value="">- GRÁFICOS -</option>
+                    <option value="1">BARRA</option>
+                    <option value="2">LINHA</option>
+                    <option value="3">POLAR</option>
+                    <option value="4">RADAR</option>
+                </select>
+                <div id="grafico_um" class="grafico_1"><canvas id="myChart_um"></canvas></div>
+                <div id="grafico_dois" class="grafico_2"><canvas id="myChart_dois"></canvas></div>
+                <div id="grafico_tres" class="grafico_3"><canvas id="myChart_tres"></canvas></div>
+                <div id="grafico_quatro" class="grafico_4"><canvas id="myChart_quatro"></canvas></div>
+
+                <div class="caixa_alerta" id="caixa_alerta">
+                    <div id="alerta_um" class="alerta" title="1° horário"></div>
+                    <div id="alerta_dois" class="alerta" title="2° horário"></div>
+                    <div id="alerta_tres" class="alerta" title="3° horário"></div>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <div class="dashboard">
+                <div class="charts">
+                    <h1>TEMPERATURA</h1>    <!-- Gráfico de temperatura da plantação 1 -->
+                    <select name="" id="sel" onchange="select()">
+                        <option value="">- GRÁFICOS -</option>
+                        <option value="1">BARRA</option>
+                        <option value="2">LINHA</option>
+                        <option value="3">POLAR</option>
+                        <option value="4">RADAR</option>
+                    </select>
+                    <div id="grafico1" class="grafico_1"><canvas id="myChart"></canvas></div>
+                    <div id="grafico2" class="grafico_2"><canvas id="myChart2"></canvas></div>
+                    <div id="grafico3" class="grafico_3"><canvas id="myChart3"></canvas></div>
+                    <div id="grafico4" class="grafico_4"><canvas id="myChart4"></canvas></div>
+
+                    <div class="caixa_alerta">
+                        <div id="alerta1" class="alerta" title="1° horário"></div>
+                        <div id="alerta2" class="alerta" title="2° horário"></div>
+                        <div id="alerta3" class="alerta" title="3° horário"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Dashboard da plantação 2 -->
+
+    <div class="caixa_maior">
+        <div class="dashboard">
+            <div class="charts">
+                <h1>UMIDADE</h1>    <!-- Gráfico de umidade da plantação 2 -->
+                <select name="" id="op_dois" onchange="selecionar2()">
+                    <option value="">- GRÁFICOS -</option>
+                    <option value="1">BARRA</option>
+                    <option value="2">LINHA</option>
+                    <option value="3">POLAR</option>
+                    <option value="4">RADAR</option>
+                </select>
+                <div id="grafico_um_dois" class="grafico_1"><canvas id="myChart_um_dois"></canvas></div>
+                <div id="grafico_dois_dois" class="grafico_2"><canvas id="myChart_dois_dois"></canvas></div>
+                <div id="grafico_tres_dois" class="grafico_3"><canvas id="myChart_tres_dois"></canvas></div>
+                <div id="grafico_quatro_dois" class="grafico_4"><canvas id="myChart_quatro_dois"></canvas></div>
+
+                <div class="caixa_alerta" id="caixa_alerta">
+                    <div id="alerta_um_dois" class="alerta" title="1° horário"></div>
+                    <div id="alerta_dois_dois" class="alerta" title="2° horário"></div>
+                    <div id="alerta_tres_dois" class="alerta" title="3° horário"></div>
+                </div>
+            </div>
+
+        </div>
+
+        <div>
+            <div class="dashboard">
+                <div class="charts">
+                    <h1>TEMPERATURA</h1>    <!-- Gráfico de temperatura da plantação 2 -->
+                    <select name="" id="sel_dois" onchange="select2()">
+                        <option value="">- GRÁFICOS -</option>
+                        <option value="1">BARRA</option>
+                        <option value="2">LINHA</option>
+                        <option value="3">POLAR</option>
+                        <option value="4">RADAR</option>
+                    </select>
+                    <div id="grafico1_dois" class="grafico_1"><canvas id="myChart1_dois"></canvas></div>
+                    <div id="grafico2_dois" class="grafico_2"><canvas id="myChart2_dois"></canvas></div>
+                    <div id="grafico3_dois" class="grafico_3"><canvas id="myChart3_dois"></canvas></div>
+                    <div id="grafico4_dois" class="grafico_4"><canvas id="myChart4_dois"></canvas></div>
+
+                    <div class="caixa_alerta">
+                        <div id="alerta1_dois" class="alerta" title="1° horário"></div>
+                        <div id="alerta2_dois" class="alerta" title="2° horário"></div>
+                        <div id="alerta3_dois" class="alerta" title="3° horário"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <div class="plantacao_titulo"> <h1> PLANTAÇÃO 3: <span> GERAL: </span> </h1> </div>
+    <!-- Dashboard da plantação 3 -->
+    <div class="caixa_maior">
+
+        <div class="dashboard">
+
+            <div class="charts"> 
+                <h1>UMIDADE</h1>    <!-- Gráfico de umidade da plantação 3 -->
+                <select name="" id="op_tres" onchange="selecionar_tres()">
+                    <option value="">- GRÁFICOS -</option>
+                    <option value="1">BARRA</option>
+                    <option value="2">LINHA</option>
+                    <option value="3">POLAR</option>
+                    <option value="4">RADAR</option>
+                </select>
+                <div  id="grafico_um_tres" class="grafico_1"><canvas id="myChart_um_tres"></canvas></div>
+                <div  id="grafico_dois_tres" class="grafico_2"><canvas id="myChart_dois_tres"></canvas></div>
+                <div  id="grafico_tres_tres" class="grafico_3"><canvas id="myChart_tres_tres"></canvas></div>
+                <div  id="grafico_quatro_tres" class="grafico_4"><canvas id="myChart_quatro_tres"></canvas></div>
+                
+                <div class="caixa_alerta" id="caixa_alerta">
+                    <div id="alerta_um_tres" class="alerta" title="1° horário"></div>
+                    <div id="alerta_dois_tres" class="alerta" title="2° horário"></div>
+                    <div id="alerta_tres_tres" class="alerta" title="3° horário"></div>
+                </div>
+            </div>
+            
+        </div>
+        
+        <div class="dashboard">
+
+            <div class="charts"> 
+                <h1>TEMPERATURA</h1>    <!-- Gráfico de temperatura da plantação 3 -->
+                <select name="" id="sel_tres" onchange="select_tres()">
+                    <option value="">- GRÁFICOS -</option>
+                    <option value="1">BARRA</option>
+                    <option value="2">LINHA</option>
+                    <option value="3">POLAR</option>
+                    <option value="4">RADAR</option>
+                </select>
+                
+                <div id="grafico1_tres" class="grafico_1"><canvas id="myChart1_tres"></canvas></div>
+                <div id="grafico2_tres" class="grafico_2"><canvas id="myChart2_tres"></canvas></div>
+                <div id="grafico3_tres" class="grafico_3"><canvas id="myChart3_tres"></canvas></div>
+                <div id="grafico4_tres" class="grafico_4"><canvas id="myChart4_tres"></canvas></div>
+
+                <div class="caixa_alerta">
+                    <div id="alerta1_tres" class="alerta" title="1° horário"></div>
+                    <div id="alerta2_tres" class="alerta" title="2° horário"></div>
+                    <div id="alerta3_tres" class="alerta" title="3° horário"></div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+        <!-- Dashboard do resultado final -->
+    <!-- <div class="dashboard"> -->
+        <div class="caixa_maior_resultado">
+            <!-- <div class="dashboard_resultado"> -->
+
+            <div class="charts"> 
+                <h1>UMIDADE ATUAL</h1>    <!-- Gráfico de umidade do resultado final -->
+                <div  id="grafico_resultado" class="grafico_resultado"><canvas id="myChart_resultado"></canvas>
+            </div>
+
+            <!-- </div> -->
+            <!-- <div class="dashboard_resultado"> -->
+
+            <div class="charts"> 
+                <h1>TEMPERATURA ATUAL</h1>     <!-- Gráfico de temperatura do resultado final -->
+                <div  id="grafico3_resultado" class="grafico_resultado"><canvas id="myChart3_resultado"></canvas>
+            </div>
+
+            <!-- </div> -->
+        </div>
+    <!-- </div> -->
+    </div>
+        
+</body>
+
+</html>
+<script>
+
+    var umidade_um = parseInt(Math.random() * 45 + 1);     // simulando valores aleatórios dos sensores
+    var umidade_dois = parseInt(Math.random() * 45 + 1);
+    var umidade_tres = parseInt(Math.random() * 45 + 1);
+
+    var cor_um = '';    // as variaves cores recebem um resultado '', indicando ser do tipo string (texto) 
+    var cor_dois = '';
+    var cor_tres = '';
+
+    if (umidade_um > 0) {   // calculando as margens para indicação das cores nos alertas
+
+        if (umidade_um >= 45) {
+            alerta_um.style.backgroundColor = 'red';
+            cor_um = 'rgb(255, 0, 0)';
+
+        } else if (umidade_um <= 5) {
+            alerta_um.style.backgroundColor = 'midnightblue';
+            cor_um = 'rgb(25, 25, 112)';
+
+        }else if ((umidade_um <= 44) && (umidade_um >= 36)) {
+            alerta_um.style.backgroundColor = 'orange';
+            cor_um = 'rgb(255, 165, 0)';
+
+        } else if ((umidade_um >= 6) && (umidade_um <= 14)) {
+            alerta_um.style.backgroundColor = 'steelblue';
+            cor_um = 'rgb(70, 130, 180)';
+
+        }
+        else if ((umidade_um <= 35) && (umidade_um >= 31)) {
+            alerta_um.style.backgroundColor = 'yellow';
+            cor_um = 'rgb(255, 255, 0)';
+
+        } else if ((umidade_um >= 15) && (umidade_um <= 19)) {
+            alerta_um.style.backgroundColor = 'royalblue';
+            cor_um = 'rgb(65, 105, 225)';
+
+        }
+        else if ((umidade_um <= 30) && (umidade_um >= 20)) {
+            alerta_um.style.backgroundColor = 'green';
+            cor_um = 'rgb(0, 128, 0)';
+        }
+
+    }
+
+    if (umidade_dois > 0) {     // cores para alertas da umidade do 2º período
+
+        if (umidade_dois >= 45) {
+            alerta_dois.style.backgroundColor = 'red';
+            cor_dois = 'rgb(255, 0, 0)';
+
+        } else if (umidade_dois <= 5) {
+            alerta_dois.style.backgroundColor = 'midnightblue';
+            cor_dois = 'rgb(25, 25, 112)';
+
+        } else if ((umidade_dois <= 44) && (umidade_dois >= 36)) {
+            alerta_dois.style.backgroundColor = 'orange';
+            cor_dois = 'rgb(255, 165, 0)';
+
+        } else if ((umidade_dois >= 6) && (umidade_dois <= 14)) {
+            alerta_dois.style.backgroundColor = 'steelblue';
+            cor_dois = 'rgb(70, 130, 180)';
+
+        } else if ((umidade_dois <= 35) && (umidade_dois >= 31)) {
+            alerta_dois.style.backgroundColor = 'yellow';
+            cor_dois = 'rgb(255, 255, 0)';
+
+        } else if ((umidade_dois >= 15) && (umidade_dois <= 19)) {
+            alerta_dois.style.backgroundColor = 'royalblue';
+            cor_dois = 'rgb(65, 105, 225)';
+
+        } else if ((umidade_dois <= 30) && (umidade_dois >= 20)) {
+            alerta_dois.style.backgroundColor = 'green';
+            cor_dois = 'rgb(0, 128, 0)';
+        }
+
+    }
+
+    if (umidade_tres > 0) {     // cores para alertas da umidade do 3º período
+
+        if (umidade_tres >= 45) {
+            alerta_tres.style.backgroundColor = 'red';
+            cor_tres = 'rgb(255, 0, 0)';
+
+        } else if (umidade_tres <= 5) {
+            alerta_tres.style.backgroundColor = 'midnightblue';
+            cor_tres = 'rgb(25, 25, 112)';
+
+        }else if ((umidade_tres <= 44) && (umidade_tres >= 36)) {
+            alerta_tres.style.backgroundColor = 'orange';
+            cor_tres = 'rgb(255, 165, 0)';
+
+        } else if ((umidade_tres >= 6) && (umidade_tres <= 14)) {
+            alerta_tres.style.backgroundColor = 'steelblue';
+            cor_tres = 'rgb(70, 130, 180)';
+
+        } else if ((umidade_tres <= 35) && (umidade_tres >= 31)) {
+            alerta_tres.style.backgroundColor = 'yellow';
+            cor_tres = 'rgb(255, 255, 0)';
+
+        } else if ((umidade_tres >= 15) && (umidade_tres <= 19)) {
+            alerta_tres.style.backgroundColor = 'royalblue';
+            cor_tres = 'rgb(65, 105, 225)';
+
+        }else if ((umidade_tres <= 30) && (umidade_tres >= 20)) {
+            alerta_tres.style.backgroundColor = 'green';
+            cor_tres = 'rgb(0, 128, 0)';
+        }
+
+    }
+
+    function selecionar() {     // Gerando os gráficos relativos a umidade da plantação 1
+
+        var opcao = op.value;
+        if (opcao == 1) {
+            grafico_um.style.display = 'block'
+            grafico_dois.style.display = 'none'
+            grafico_tres.style.display = 'none'
+            grafico_quatro.style.display = 'none'
+
+            var ctx = document.getElementById('myChart_um').getContext('2d');
+            var myChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['manhâ', 'tarde', 'noite'],
+
+                    datasets: [{
+                        label: 'Umidade x Periodo',
+                        data: [umidade_um, umidade_dois, umidade_tres],
+
+                        backgroundColor: [
+                            `${cor_um}`,  // as cores receberão aquelas indicadas nas variaveis com base no calculo das margens
+                            `${cor_dois}`,
+                            `${cor_tres}`
+                        ],
+                        borderColor: [
+                            'rgb(0, 0, 0)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                        },
+                        title: {
+                            display: true,
+                            // text: 'Chart.js Bar Chart'
+                        }
+                    }
+                },
+            });
+
+        }
+        else if (opcao == 2) {
+            grafico_um.style.display = 'none'
+            grafico_dois.style.display = 'block'
+            grafico_tres.style.display = 'none'
+            grafico_quatro.style.display = 'none'
+            var ctx2 = document.getElementById('myChart_dois').getContext('2d');
+            var myChart2 = new Chart(ctx2, {
+                type: 'line',
+                data: {
+                    labels: ['manhâ', 'tarde', 'noite'],
+
+                    datasets: [{
+                        label: 'Umidade x Periodo',
+                        data: [umidade_um, umidade_dois, umidade_tres],
+
+                        backgroundColor: [
+                            `${cor_um}`,
+                            `${cor_dois}`,
+                            `${cor_tres}`
+                        ],
+                        borderColor: [
+                            'rgb(0, 0, 0)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                        },
+                        title: {
+                            display: true,
+                            // text: 'Chart.js Line Chart'
+                        }
+                    }
+                },
+            });
+        }
+        else if (opcao == 3) {
+            grafico_um.style.display = 'none'
+            grafico_dois.style.display = 'none'
+            grafico_tres.style.display = 'block'
+            grafico_quatro.style.display = 'none'
+
+            var ctx3 = document.getElementById('myChart_tres').getContext('2d');
+            var myChart3 = new Chart(ctx3, {
+                type: 'polarArea',
+                data: {
+                    labels: ['manhâ', 'tarde', 'noite'],
+
+                    datasets: [{
+                        label: 'Umidade x Periodo',
+                        data: [umidade_um, umidade_dois, umidade_tres],
+
+                        backgroundColor: [
+                            `${cor_um}`,
+                            `${cor_dois}`,
+                            `${cor_tres}`
+                        ],
+                        borderColor: [
+                            'rgb(0, 0, 0)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                        },
+                        title: {
+                            display: true,
+                            // text: 'Chart.js Polar Area Chart'
+                        }
+                    }
+                },
+            });
+        }
+        else if (opcao == 4) {
+            grafico_um.style.display = 'none'
+            grafico_dois.style.display = 'none'
+            grafico_tres.style.display = 'none'
+            grafico_quatro.style.display = 'block'
+            var ctx4 = document.getElementById('myChart_quatro').getContext('2d');
+            var myChart4 = new Chart(ctx4, {
+                type: 'radar',
+                data: {
+                    labels: ['manhâ', 'tarde', 'noite'],
+
+                    datasets: [{
+                        label: 'Umidade x Periodo',
+                        data: [umidade_um, umidade_dois, umidade_tres],
+
+                        backgroundColor: [
+                            `${cor_um}`,
+                            `${cor_dois}`,
+                            `${cor_tres}`
+                        ],
+                        borderColor: [
+                            'rgb(0, 0, 0)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        title: {
+                            display: true,
+                            // text: 'Chart.js Radar Chart'
+                        }
+                    }
+                },
+            });
+        }
+    }
+
+    var temp_um = parseInt(Math.random() * 50 + 1);     // definindo os valores variáveis para temperatura
+    var temp_dois = parseInt(Math.random() * 50 + 1);
+    var temp_tres = parseInt(Math.random() * 50 + 1);
+
+    var cor1 = '';
+    var cor2 = '';
+    var cor3 = '';
+
+    if (temp_um > 0) {      // definindo as margens de alerta para o 1º período de temperatura
+
+        if (temp_um >= 31) {
+            alerta1.style.backgroundColor = 'red';
+            cor1 = 'rgb(255, 0, 0)';
+
+        } else if (temp_um <= 3) {
+            alerta1.style.backgroundColor = 'midnightblue';
+            cor1 = 'rgb(25, 25, 112)';
+
+        }else if ((temp_um <= 30) && (temp_um >= 28)) {
+            alerta1.style.backgroundColor = 'orange';
+            cor1 = 'rgb(255, 165, 0)';
+
+        } else if ((temp_um >= 4) && (temp_um <= 6)) {
+            alerta1.style.backgroundColor = 'steelblue';
+            cor1 = 'rgb(70, 130, 180)';
+
+        }else if ((temp_um <= 27) && (temp_um >= 25)) {
+            alerta1.style.backgroundColor = 'yellow';
+            cor1 = 'rgb(255, 255, 0)';
+
+        } else if ((temp_um >= 7) && (temp_um <= 9)) {
+            alerta1.style.backgroundColor = 'royalblue';
+            cor1 = 'rgb(65, 105, 225)';
+
+        }else if ((temp_um <= 24) && (temp_um >= 10)) {
+            alerta1.style.backgroundColor = 'green';
+            cor1 = 'rgb(0, 128, 0)';
+        }
+
+    }
+
+    if (temp_dois > 0) {      // definindo as margens de alerta para o 2º período de temperatura
+
+        if (temp_dois >= 31) {
+            alerta2.style.backgroundColor = 'red';
+            cor2 = 'rgb(255, 0, 0)';
+
+        } else if (temp_dois <= 3) {
+            alerta2.style.backgroundColor = 'midnightblue';
+            cor2 = 'rgb(25, 25, 112)';
+
+        } else if ((temp_dois <= 30) && (temp_dois >= 28)) {
+            alerta2.style.backgroundColor = 'orange';
+            cor2 = 'rgb(255, 165, 0)';
+
+        } else if ((temp_dois >= 4) && (temp_dois <= 6)) {
+            alerta2.style.backgroundColor = 'steelblue';
+            cor2 = 'rgb(70, 130, 180)';
+
+        } else if ((temp_dois <= 27) && (temp_dois >= 25)) {
+            alerta2.style.backgroundColor = 'yellow';
+            cor2 = 'rgb(255, 255, 0)';
+
+        } else if ((temp_dois >= 7) && (temp_dois <= 9)) {
+            alerta2.style.backgroundColor = 'royalblue';
+            cor2 = 'rgb(65, 105, 225)';
+
+        } else if ((temp_dois <= 24) && (temp_dois >= 10)) {
+            alerta2.style.backgroundColor = 'green';
+            cor2 = 'rgb(0, 128, 0)';
+        }
+
+    }
+
+    if (temp_tres > 0) {        // definindo as margens de alerta para o º período de temperatura
+
+        if (temp_tres >= 31) {
+            alerta3.style.backgroundColor = 'red';
+            cor3 = 'rgb(255, 0, 0)';
+
+        } else if (temp_tres <= 3) {
+            alerta3.style.backgroundColor = 'midnightblue';
+            cor3 = 'rgb(25, 25, 112)';
+
+        } else if ((temp_tres <= 30) && (temp_tres >= 28)) {
+            alerta3.style.backgroundColor = 'orange';
+            cor3 = 'rgb(255, 165, 0)';
+
+        } else if ((temp_tres >= 4) && (temp_tres <= 6)) {
+            alerta3.style.backgroundColor = 'steelblue';
+            cor3 = 'rgb(70, 130, 180)';
+
+        } else if ((temp_tres <= 27) && (temp_tres >= 25)) {
+            alerta3.style.backgroundColor = 'yellow';
+            cor3 = 'rgb(255, 255, 0)';
+
+        } else if ((temp_tres >= 7) && (temp_tres <= 9)) {
+            alerta3.style.backgroundColor = 'royalblue';
+            cor3 = 'rgb(65, 105, 225)';
+
+        } else if ((temp_tres <= 24) && (temp_tres >= 10)) {
+            alerta3.style.backgroundColor = 'green';
+            cor3 = 'rgb(0, 128, 0)';
+        }
+
+    }
+
+    function select() {     // Gerando os gráficos relativos a temperatura da plantação 1
+
+        var tipo = sel.value;
+        if (tipo == 1) {
+
+            grafico1.style.display = 'block'
+            grafico2.style.display = 'none'
+            grafico3.style.display = 'none'
+            grafico4.style.display = 'none'
+
+            var ctx = document.getElementById('myChart').getContext('2d');
+            var myChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['manhâ', 'tarde', 'noite'],
+
+                    datasets: [{
+                        label: 'Temperatura x Periodo',
+                        data: [temp_um, temp_dois, temp_tres],
+
+                        backgroundColor: [
+                            `${cor1}`,
+                            `${cor2}`,
+                            `${cor3}`
+                        ],
+                        borderColor: [
+                            'rgb(0, 0, 0)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                        },
+                        title: {
+                            display: true,
+                            // text: 'Chart.js Bar Chart'
+                        }
+                    }
+                },
+            });
+
+        }
+        else if (tipo == 2) {
+
+            grafico1.style.display = 'none'
+            grafico2.style.display = 'block'
+            grafico3.style.display = 'none'
+            grafico4.style.display = 'none'
+            var ctx2 = document.getElementById('myChart2').getContext('2d');
+            var myChart2 = new Chart(ctx2, {
+                type: 'line',
+                data: {
+                    labels: ['manhâ', 'tarde', 'noite'],
+
+                    datasets: [{
+                        label: 'Temperatura x Periodo',
+                        data: [temp_um, temp_dois, temp_tres],
+
+                        backgroundColor: [
+                            `${cor1}`,
+                            `${cor2}`,
+                            `${cor3}`
+                        ],
+                        borderColor: [
+                            'rgb(0, 0, 0)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                        },
+                        title: {
+                            display: true,
+                            // text: 'Chart.js Line Chart'
+                        }
+                    }
+                },
+            });
+        }
+        else if (tipo == 3) {
+
+            grafico1.style.display = 'none'
+            grafico2.style.display = 'none'
+            grafico3.style.display = 'block'
+            grafico4.style.display = 'none'
+
+            var ctx3 = document.getElementById('myChart3').getContext('2d');
+            var myChart3 = new Chart(ctx3, {
+                type: 'polarArea',
+                data: {
+                    labels: ['manhâ', 'tarde', 'noite'],
+
+                    datasets: [{
+                        label: 'Temperatura x Periodo',
+                        data: [temp_um, temp_dois, temp_tres],
+
+                        backgroundColor: [
+                            `${cor1}`,
+                            `${cor2}`,
+                            `${cor3}`
+                        ],
+                        borderColor: [
+                            'rgb(0, 0, 0)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                        },
+                        title: {
+                            display: true,
+                            // text: 'Chart.js Polar Area Chart'
+                        }
+                    }
+                },
+            });
+        }
+        else if (tipo == 4) {
+
+            grafico1.style.display = 'none'
+            grafico2.style.display = 'none'
+            grafico3.style.display = 'none'
+            grafico4.style.display = 'block'
+            var ctx4 = document.getElementById('myChart4').getContext('2d');
+            var myChart4 = new Chart(ctx4, {
+                type: 'radar',
+                data: {
+                    labels: ['manhâ', 'tarde', 'noite'],
+
+                    datasets: [{
+                        label: 'Temperatura x Periodo',
+                        data: [temp_um, temp_dois, temp_tres],
+
+                        backgroundColor: [
+                            `${cor1}`,
+                            `${cor2}`,
+                            `${cor3}`
+                        ],
+                        borderColor: [
+                            'rgb(0, 0, 0)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        title: {
+                            display: true,
+                            // text: 'Chart.js Radar Chart'
+                        }
+                    }
+                },
+            });
+        }
+    }
+    var umidade_um_dois = parseInt(Math.random() * 45 + 1);     // simulando valores aleatórios dos sensores
+    var umidade_dois_dois = parseInt(Math.random() * 45 + 1);
+    var umidade_tres_dois = parseInt(Math.random() * 45 + 1);
+
+    var cor_um_dois = '';  // as variaves cores recebem um resultado '', indicando ser do tipo string (texto) 
+    var cor_dois_dois = '';
+    var cor_tres_dois = '';
+
+    if (umidade_um_dois > 0) {   // calculando as margens para indicação das cores nos alertas
+
+        if (umidade_um_dois >= 45) {
+        alerta_um_dois.style.backgroundColor = 'red';
+        cor_um_dois = 'rgb(255, 0, 0)';
+
+        } else if (umidade_um_dois <= 5) {
+            alerta_um_dois.style.backgroundColor = 'midnightblue';
+            cor_um_dois = 'rgb(25, 25, 112)';
+
+        } else if  ( (umidade_um_dois <= 44) && (umidade_um_dois >= 36) ) {
+            alerta_um_dois.style.backgroundColor = 'orange';
+            cor_um_dois = 'rgb(255, 165, 0)';
+
+        } else if ( (umidade_um_dois >= 6) && (umidade_um_dois <= 14) ) {
+            alerta_um_dois.style.backgroundColor = 'steelblue';
+            cor_um_dois = 'rgb(70, 130, 180)';
+
+        } else if ( (umidade_um_dois <= 35) && (umidade_um_dois >= 31) ) {
+            alerta_um_dois.style.backgroundColor = 'yellow';
+            cor_um_dois = 'rgb(255, 255, 0)';
+
+        } else if ( (umidade_um_dois >= 15) && (umidade_um_dois <= 19) ) {
+            alerta_um_dois.style.backgroundColor = 'royalblue';
+            cor_um_dois = 'rgb(65, 105, 225)';
+
+        } else if ( (umidade_um_dois <= 30) && (umidade_um_dois >= 20) ) {
+            alerta_um_dois.style.backgroundColor = 'green';
+            cor_um_dois = 'rgb(0, 128, 0)';
+        }
+
+    }
+
+    if (umidade_dois_dois > 0) {
+
+    if (umidade_dois_dois >= 45) {
+    alerta_dois_dois.style.backgroundColor = 'red';
+    cor_dois_dois = 'rgb(255, 0, 0)';
+
+    } else if (umidade_dois_dois <= 5) {
+        alerta_dois_dois.style.backgroundColor = 'midnightblue';
+        cor_dois_dois = 'rgb(25, 25, 112)';
+
+    } else if  ( (umidade_dois_dois <= 44) && (umidade_dois_dois >= 36) ) {
+        alerta_dois_dois.style.backgroundColor = 'orange';
+        cor_dois_dois = 'rgb(255, 165, 0)';
+
+    } else if ( (umidade_dois_dois >= 6) && (umidade_dois_dois <= 14) ) {
+        alerta_dois_dois.style.backgroundColor = 'steelblue';
+        cor_dois_dois = 'rgb(70, 130, 180)';
+
+    } else if ( (umidade_dois_dois <= 35) && (umidade_dois_dois >= 31) ) {
+        alerta_dois_dois.style.backgroundColor = 'yellow';
+        cor_dois_dois = 'rgb(255, 255, 0)';
+
+    } else if ( (umidade_dois_dois >= 15) && (umidade_dois_dois <= 19) ) {
+        alerta_dois_dois.style.backgroundColor = 'royalblue';
+        cor_dois_dois = 'rgb(65, 105, 225)';
+
+    } else if ( (umidade_dois_dois <= 30) && (umidade_dois_dois >= 20) ) {
+        alerta_dois_dois.style.backgroundColor = 'green';
+        cor_dois_dois = 'rgb(0, 128, 0)';
+    }
+
+    }
+
+    if (umidade_tres_dois > 0) {
+
+    if (umidade_tres_dois >= 45) {
+    alerta_tres_dois.style.backgroundColor = 'red';
+    cor_tres_dois = 'rgb(255, 0, 0)';
+
+    } else if (umidade_tres_dois <= 5) {
+        alerta_tres_dois.style.backgroundColor = 'midnightblue';
+        cor_tres_dois = 'rgb(25, 25, 112)';
+
+    } else if  ( (umidade_tres_dois <= 44) && (umidade_tres_dois >= 36) ) {
+        alerta_tres_dois.style.backgroundColor = 'orange';
+        cor_tres_dois = 'rgb(255, 165, 0)';
+
+    } else if ( (umidade_tres_dois >= 6) && (umidade_tres_dois <= 14) ) {
+        alerta_tres_dois.style.backgroundColor = 'steelblue';
+        cor_tres_dois = 'rgb(70, 130, 180)';
+
+    } else if ( (umidade_tres_dois <= 35) && (umidade_tres_dois >= 31) ) {
+        alerta_tres_dois.style.backgroundColor = 'yellow';
+        cor_tres_dois = 'rgb(255, 255, 0)';
+
+    } else if ( (umidade_tres_dois >= 15) && (umidade_tres_dois <= 19) ) {
+        alerta_tres_dois.style.backgroundColor = 'royalblue';
+        cor_tres_dois = 'rgb(65, 105, 225)';
+
+    } else if ( (umidade_tres_dois <= 30) && (umidade_tres_dois >= 20) ) {
+        alerta_tres_dois.style.backgroundColor = 'green';
+        cor_tres_dois = 'rgb(0, 128, 0)';
+    }
+
+    }
+
+    function selecionar2() {
+
+        var opcao_dois = op_dois.value;
+        if (opcao_dois == 1) {
+            grafico_um_dois.style.display = 'block'
+            grafico_dois_dois.style.display = 'none'
+            grafico_tres_dois.style.display = 'none'
+            grafico_quatro_dois.style.display = 'none'
+
+            var ctx = document.getElementById('myChart_um_dois').getContext('2d');
+            var myChart_dois = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['manhâ', 'tarde', 'noite'],
+
+                    datasets: [{
+                        label: 'Umidade x Periodo',
+                        data: [umidade_um_dois, umidade_dois_dois, umidade_tres_dois],
+
+                        backgroundColor: [
+                        `${cor_um_dois}`,  // as cores receberão aquelas indicadas nas variaveis com base no calculo das margens
+                        `${cor_dois_dois}`,
+                        `${cor_tres_dois}`
+                        ],
+                        borderColor: [
+                        'rgb(0, 0, 0)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+    responsive: true,
+    plugins: {
+      legend: {
+        position: 'top',
+      },
+      title: {
+        display: true,
+        // text: 'Chart.js Bar Chart'
+      }
+    }
+  },
+            });
+
+        }
+        else if (opcao_dois == 2) {
+            grafico_um_dois.style.display = 'none'
+            grafico_dois_dois.style.display = 'block'
+            grafico_tres_dois.style.display = 'none'
+            grafico_quatro_dois.style.display = 'none'
+            var ctx2 = document.getElementById('myChart_dois_dois').getContext('2d');
+            var myChart2_dois = new Chart(ctx2, {
+                type: 'line',
+                data: {
+                    labels: ['manhâ', 'tarde', 'noite'],
+
+                    datasets: [{
+                        label: 'Umidade x Periodo',
+                        data: [umidade_um_dois, umidade_dois_dois, umidade_tres_dois],
+
+                        backgroundColor: [
+                        `${cor_um_dois}`,
+                        `${cor_dois_dois}`,
+                        `${cor_tres_dois}`
+                        ],
+                        borderColor: [
+                        'rgb(0, 0, 0)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+    responsive: true,
+    plugins: {
+      legend: {
+        position: 'top',
+      },
+      title: {
+        display: true,
+        // text: 'Chart.js Line Chart'
+      }
+    }
+  },
+            });
+        }
+        else if (opcao_dois == 3) {
+            grafico_um_dois.style.display = 'none'
+            grafico_dois_dois.style.display = 'none'
+            grafico_tres_dois.style.display = 'block'
+            grafico_quatro_dois.style.display = 'none'
+
+            var ctx3 = document.getElementById('myChart_tres_dois').getContext('2d');
+            var myChart3_dois = new Chart(ctx3, {
+                type: 'polarArea',
+                data: {
+                    labels: ['manhâ', 'tarde', 'noite'],
+
+                    datasets: [{
+                        label: 'Umidade x Periodo',
+                        data: [umidade_um_dois, umidade_dois_dois, umidade_tres_dois],
+
+                        backgroundColor: [
+                        `${cor_um_dois}`,
+                        `${cor_dois_dois}`,
+                        `${cor_tres_dois}`
+                        ],
+                        borderColor: [
+                        'rgb(0, 0, 0)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+    responsive: true,
+    plugins: {
+      legend: {
+        position: 'top',
+      },
+      title: {
+        display: true,
+        // text: 'Chart.js Polar Area Chart'
+      }
+    }
+  },
+            });
+        }
+        else if (opcao_dois == 4) {
+            grafico_um_dois.style.display = 'none'
+            grafico_dois_dois.style.display = 'none'
+            grafico_tres_dois.style.display = 'none'
+            grafico_quatro_dois.style.display = 'block'
+            var ctx4 = document.getElementById('myChart_quatro_dois').getContext('2d');
+            var myChart4_dois = new Chart(ctx4, {
+                type: 'radar',
+                data: {
+                    labels: ['manhâ', 'tarde', 'noite'],
+
+                    datasets: [{
+                        label: 'Umidade x Periodo',
+                        data: [umidade_um_dois, umidade_dois_dois, umidade_tres_dois],
+
+                        backgroundColor: [
+                        `${cor_um_dois}`,
+                        `${cor_dois_dois}`,
+                        `${cor_tres_dois}`
+                        ],
+                        borderColor: [
+                        'rgb(0, 0, 0)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        title: {
+                            display: true,
+                            // text: 'Chart.js Radar Chart'
+                        }
+                    }
+                },
+            });
+        }
+    }
+    var temp_um_dois = parseInt(Math.random() * 50 + 1);
+    var temp_dois_dois = parseInt(Math.random() * 50 + 1);
+    var temp_tres_dois = parseInt(Math.random() * 50 + 1);
+
+    var cor1_dois = '';
+    var cor2_dois = '';
+    var cor3_dois = '';
+
+    if (temp_um_dois > 0) {
+
+    if (temp_um_dois >= 31) {
+    alerta1_dois.style.backgroundColor = 'red';
+    cor1_dois = 'rgb(255, 0, 0)';
+
+    } else if (temp_um_dois <= 3) {
+        alerta1_dois.style.backgroundColor = 'midnightblue';
+        cor1_dois = 'rgb(25, 25, 112)';
+
+    } else if ( (temp_um_dois <= 30) && (temp_um_dois >= 28) ) {
+        alerta1_dois.style.backgroundColor = 'orange';
+        cor1_dois = 'rgb(255, 165, 0)';
+
+    } else if ( (temp_um_dois >= 4) && (temp_um_dois <= 6) ) {
+        alerta1_dois.style.backgroundColor = 'steelblue';
+        cor1_dois = 'rgb(70, 130, 180)';
+
+    } else if ( (temp_um_dois <= 27) && (temp_um_dois >= 25) ) {
+        alerta1_dois.style.backgroundColor = 'yellow';
+        cor1_dois = 'rgb(255, 255, 0)';
+
+    } else if ( (temp_um_dois >= 7) && (temp_um_dois <= 9) ) {
+        alerta1_dois.style.backgroundColor = 'royalblue';
+        cor1_dois = 'rgb(65, 105, 225)';
+
+    } else if ( (temp_um_dois <= 24) && (temp_um_dois >= 10) ) {
+        alerta1_dois.style.backgroundColor = 'green';
+        cor1_dois = 'rgb(0, 128, 0)';
+    }
+
+    }
+
+    if (temp_dois_dois > 0) {
+
+    if (temp_dois_dois >= 31) {
+        alerta2_dois.style.backgroundColor = 'red';
+        cor2_dois = 'rgb(255, 0, 0)';
+
+    } else if (temp_dois_dois <= 3) {
+        alerta2_dois.style.backgroundColor = 'midnightblue';
+        cor2_dois = 'rgb(25, 25, 112)';
+
+    } else if ( (temp_dois_dois <= 30) && (temp_dois_dois >= 28) ) {
+        alerta2_dois.style.backgroundColor = 'orange';
+        cor2_dois = 'rgb(255, 165, 0)';
+
+    } else if ( (temp_dois_dois >= 4) && (temp_dois_dois <= 6) ) {
+        alerta2_dois.style.backgroundColor = 'steelblue';
+        cor2_dois = 'rgb(70, 130, 180)';
+
+    } else if  ( (temp_dois_dois <= 27) && (temp_dois_dois >= 25) ) {
+        alerta2_dois.style.backgroundColor = 'yellow';
+        cor2_dois = 'rgb(255, 255, 0)';
+
+    } else if ( (temp_dois_dois >= 7) && (temp_dois_dois <= 9) ) {
+        alerta2_dois.style.backgroundColor = 'royalblue';
+        cor2_dois = 'rgb(65, 105, 225)';
+
+    } else if ( (temp_dois_dois <= 24) && (temp_dois_dois >= 10) ) {
+        alerta2_dois.style.backgroundColor = 'green';
+        cor2_dois = 'rgb(0, 128, 0)';
+    }
+
+    }
+
+    if (temp_tres_dois > 0) {
+
+    if (temp_tres_dois >= 31) {
+        alerta3_dois.style.backgroundColor = 'red';
+        cor3_dois = 'rgb(255, 0, 0)';
+
+    } else if (temp_tres_dois <= 3) {
+        alerta3_dois.style.backgroundColor = 'midnightblue';
+        cor3_dois = 'rgb(25, 25, 112)';
+
+    } else if ( (temp_tres_dois <= 30) && (temp_tres_dois >= 28) ) {
+        alerta3_dois.style.backgroundColor = 'orange';
+        cor3_dois = 'rgb(255, 165, 0)';
+
+    } else if ( (temp_tres_dois >= 4) && (temp_tres_dois <= 6) ) {
+        alerta3_dois.style.backgroundColor = 'steelblue';
+        cor3_dois = 'rgb(70, 130, 180)';
+
+    } else if ( (temp_tres_dois <= 27) && (temp_tres_dois >= 25) ) {
+        alerta3_dois.style.backgroundColor = 'yellow';
+        cor3_dois = 'rgb(255, 255, 0)';
+
+    } else if ( (temp_tres_dois >= 7) && (temp_tres_dois <= 9) ) {
+        alerta3_dois.style.backgroundColor = 'royalblue';
+        cor3_dois = 'rgb(65, 105, 225)';
+
+    } else if ( (temp_tres_dois <= 24) && (temp_tres_dois >= 10) ) {
+        alerta3_dois.style.backgroundColor = 'green';
+        cor3_dois = 'rgb(0, 128, 0)';
+    }
+
+    }
+
+    function select2() {
+        
+        var tipo_dois = sel_dois.value;
+        if (tipo_dois == 1) {
+
+            grafico1_dois.style.display = 'block'
+            grafico2_dois.style.display = 'none'
+            grafico3_dois.style.display = 'none'
+            grafico4_dois.style.display = 'none'
+
+            var ctx = document.getElementById('myChart1_dois').getContext('2d');
+            var myChart1_dois = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['manhâ', 'tarde', 'noite'],
+
+                    datasets: [{
+                        label: 'Temperatura x Periodo',
+                        data: [temp_um_dois, temp_dois_dois, temp_tres_dois],
+
+                        backgroundColor: [
+                            `${cor1_dois}`,
+                            `${cor2_dois}`,
+                            `${cor3_dois}`
+                        ],
+                        borderColor: [
+                            'rgb(0, 0, 0)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                        },
+                        title: {
+                            display: true,
+                            // text: 'Chart.js Bar Chart'
+                        }
+                    }
+                },
+            });
+
+        }
+        else if (tipo_dois == 2) {
+
+            grafico1_dois.style.display = 'none'
+            grafico2_dois.style.display = 'block'
+            grafico3_dois.style.display = 'none'
+            grafico4_dois.style.display = 'none'
+            var ctx2 = document.getElementById('myChart2_dois').getContext('2d');
+            var myChart2_dois = new Chart(ctx2, {
+                type: 'line',
+                data: {
+                    labels: ['manhâ', 'tarde', 'noite'],
+
+                    datasets: [{
+                        label: 'Temperatura x Periodo',
+                        data: [temp_um_dois, temp_dois_dois, temp_tres_dois],
+
+                        backgroundColor: [
+                        `${cor1_dois}`,
+                        `${cor2_dois}`,
+                        `${cor3_dois}`
+                        ],
+                        borderColor: [
+                        'rgb(0, 0, 0)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+    responsive: true,
+    plugins: {
+      legend: {
+        position: 'top',
+      },
+      title: {
+        display: true,
+        // text: 'Chart.js Line Chart'
+      }
+    }
+  },
+            });
+        }
+        else if (tipo_dois == 3) {
+
+            grafico1_dois.style.display = 'none'
+            grafico2_dois.style.display = 'none'
+            grafico3_dois.style.display = 'block'
+            grafico4_dois.style.display = 'none'
+
+            var ctx3 = document.getElementById('myChart3_dois').getContext('2d');
+            var myChart3_dois = new Chart(ctx3, {
+                type: 'polarArea',
+                data: {
+                    labels: ['manhâ', 'tarde', 'noite'],
+
+                    datasets: [{
+                        label: 'Temperatura x Periodo',
+                        data: [temp_um_dois, temp_dois_dois, temp_tres_dois],
+
+                        backgroundColor: [
+                        `${cor1_dois}`,
+                        `${cor2_dois}`,
+                        `${cor3_dois}`
+                        ],
+                        borderColor: [
+                        'rgb(0, 0, 0)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+    responsive: true,
+    plugins: {
+      legend: {
+        position: 'top',
+      },
+      title: {
+        display: true,
+        // text: 'Chart.js Polar Area Chart'
+      }
+    }
+  },
+            });
+        }
+        else if (tipo_dois == 4) {
+
+            grafico1_dois.style.display = 'none'
+            grafico2_dois.style.display = 'none'
+            grafico3_dois.style.display = 'none'
+            grafico4_dois.style.display = 'block'
+            var ctx4 = document.getElementById('myChart4_dois').getContext('2d');
+            var myChart4_dois = new Chart(ctx4, {
+                type: 'radar',
+                data: {
+                    labels: ['manhâ', 'tarde', 'noite'],
+
+                    datasets: [{
+                        label: 'Temperatura x Periodo',
+                        data: [temp_um_dois, temp_dois_dois, temp_tres_dois],
+
+                        backgroundColor: [
+                        `${cor1_dois}`,
+                        `${cor2_dois}`,
+                        `${cor3_dois}`
+                        ],
+                        borderColor: [
+                        'rgb(0, 0, 0)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        title: {
+                            display: true,
+                            // text: 'Chart.js Radar Chart'
+                        }
+                    }
+                },
+            });
+        }
+    }
+
+    var umidade_um_tres = parseInt(Math.random() * 45 + 1);     // simulando valores aleatórios dos sensores
+    var umidade_dois_tres = parseInt(Math.random() * 45 + 1);
+    var umidade_tres_tres = parseInt(Math.random() * 45 + 1);
+
+    var cor_um_tres = '';  // as variaves cores recebem um resultado '', indicando ser do tipo string (texto) 
+    var cor_dois_tres = '';
+    var cor_tres_tres = '';
+
+    if (umidade_um_tres > 0) {   // calculando as margens para indicação das cores nos alertas
+
+        if (umidade_um_tres >= 45) {
+            alerta_um_tres.style.backgroundColor = 'red';
+            cor_um_tres = 'rgb(255, 0, 0)';
+
+        } else if (umidade_um_tres <= 5) {
+            alerta_um_tres.style.backgroundColor = 'midnightblue';
+            cor_um_tres = 'rgb(25, 25, 112)';
+
+        } else if ( (umidade_um_tres <= 44) && (umidade_um_tres >= 36) ) {
+            alerta_um_tres.style.backgroundColor = 'orange';
+            cor_um_tres = 'rgb(255, 165, 0)';
+
+        } else if ( (umidade_um_tres >= 6) && (umidade_um_tres <= 14) ) {
+            alerta_um_tres.style.backgroundColor = 'steelblue';
+            cor_um_tres = 'rgb(70, 130, 180)';
+
+        } else if  ( (umidade_um_tres <= 35) && (umidade_um_tres >= 31) ) {
+            alerta_um_tres.style.backgroundColor = 'yellow';
+            cor_um_tres = 'rgb(255, 255, 0)';
+
+        } else if ( (umidade_um_tres >= 15) && (umidade_um_tres <= 19) ) {
+            alerta_um_tres.style.backgroundColor = 'royalblue';
+            cor_um_tres = 'rgb(65, 105, 225)';
+
+        } else if ( (umidade_um_tres <= 30) && (umidade_um_tres >= 20) ) {
+            alerta_um_tres.style.backgroundColor = 'green';
+            cor_um_tres = 'rgb(0, 128, 0)';
+        }
+
+    }
+
+    if (umidade_dois_tres > 0) {
+
+    if (umidade_dois_tres >= 45) {
+        alerta_dois_tres.style.backgroundColor = 'red';
+        cor_dois_tres = 'rgb(255, 0, 0)';
+
+    } else if (umidade_dois_tres <= 5) {
+        alerta_dois_tres.style.backgroundColor = 'midnightblue';
+        cor_dois_tres = 'rgb(25, 25, 112)';
+
+    } else if ( (umidade_dois_tres <= 44) && (umidade_dois_tres >= 36) ) {
+        alerta_dois_tres.style.backgroundColor = 'orange';
+        cor_dois_tres = 'rgb(255, 165, 0)';
+
+    } else if ( (umidade_dois_tres >= 6) && (umidade_dois_tres <= 14) ) {
+        alerta_dois_tres.style.backgroundColor = 'steelblue';
+        cor_dois_tres = 'rgb(70, 130, 180)';
+
+    } else if ( (umidade_dois_tres <= 35) && (umidade_dois_tres >= 31) ) {
+        alerta_dois_tres.style.backgroundColor = 'yellow';
+        cor_dois_tres = 'rgb(255, 255, 0)';
+
+    } else if ( (umidade_dois_tres >= 15) && (umidade_dois_tres <= 19) ) {
+        alerta_dois_tres.style.backgroundColor = 'royalblue';
+        cor_dois_tres = 'rgb(65, 105, 225)';
+
+    } else if ( (umidade_dois_tres <= 30) && (umidade_dois_tres >= 20) ) {
+        alerta_dois_tres.style.backgroundColor = 'green';
+        cor_dois_tres = 'rgb(0, 128, 0)';
+    }
+
+    }
+
+    if (umidade_tres_tres > 0) {
+
+    if (umidade_tres_tres >= 45) {
+    alerta_tres_tres.style.backgroundColor = 'red';
+    cor_tres_tres = 'rgb(255, 0, 0)';
+
+    } else if (umidade_tres_tres <= 5) {
+        alerta_tres_tres.style.backgroundColor = 'midnightblue';
+        cor_tres_tres = 'rgb(25, 25, 112)';
+
+    } else if ( (umidade_tres_tres <= 44) && (umidade_tres_tres >= 36) ) {
+        alerta_tres_tres.style.backgroundColor = 'orange';
+        cor_tres_tres = 'rgb(255, 165, 0)';
+
+    } else if ( (umidade_tres_tres >= 6) && (umidade_tres_tres <= 14) ) {
+        alerta_tres_tres.style.backgroundColor = 'steelblue';
+        cor_tres_tres = 'rgb(70, 130, 180)';
+
+    } else if ( (umidade_tres_tres <= 35) && (umidade_tres_tres >= 31) ) {
+        alerta_tres_tres.style.backgroundColor = 'yellow';
+        cor_tres_tres = 'rgb(255, 255, 0)';
+
+    } else if ( (umidade_tres_tres >= 15) && (umidade_tres_tres <= 19) ) {
+        alerta_tres_tres.style.backgroundColor = 'royalblue';
+        cor_tres_tres = 'rgb(65, 105, 225)';
+
+    } else if ( (umidade_tres_tres <= 30) && (umidade_tres_tres >= 20) ) {
+        alerta_tres_tres.style.backgroundColor = 'green';
+        cor_tres_tres = 'rgb(0, 128, 0)';
+    }
+
+    }
+
+    function selecionar_tres() {
+
+        var opcao = op_tres.value;
+        if (opcao == 1) {
+            grafico_um_tres.style.display = 'block'
+            grafico_dois_tres.style.display = 'none'
+            grafico_tres_tres.style.display = 'none'
+            grafico_quatro_tres.style.display = 'none'
+
+            var ctx = document.getElementById('myChart_um_tres').getContext('2d');
+            var myChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['manhâ', 'tarde', 'noite'],
+
+                    datasets: [{
+                        label: 'Umidade x Periodo',
+                        data: [umidade_um_tres, umidade_dois_tres, umidade_tres_tres],
+
+                        backgroundColor: [
+                        `${cor_um_tres}`,  // as cores receberão aquelas indicadas nas variaveis com base no calculo das margens
+                        `${cor_dois_tres}`,
+                        `${cor_tres_tres}`
+                        ],
+                        borderColor: [
+                        'rgb(0, 0, 0)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+    responsive: true,
+    plugins: {
+      legend: {
+        position: 'top',
+      },
+      title: {
+        display: true,
+        // text: 'Chart.js Bar Chart'
+      }
+    }
+  },
+            });
+
+        }
+        else if (opcao == 2) {
+            grafico_um_tres.style.display = 'none'
+            grafico_dois_tres.style.display = 'block'
+            grafico_tres_tres.style.display = 'none'
+            grafico_quatro_tres.style.display = 'none'
+            var ctx2 = document.getElementById('myChart_dois_tres').getContext('2d');
+            var myChart2 = new Chart(ctx2, {
+                type: 'line',
+                data: {
+                    labels: ['manhâ', 'tarde', 'noite'],
+
+                    datasets: [{
+                        label: 'Umidade x Periodo',
+                        data: [umidade_um_tres, umidade_dois_tres, umidade_tres_tres],
+
+                        backgroundColor: [
+                        `${cor_um_tres}`,
+                        `${cor_dois_tres}`,
+                        `${cor_tres_tres}`
+                        ],
+                        borderColor: [
+                        'rgb(0, 0, 0)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+    responsive: true,
+    plugins: {
+      legend: {
+        position: 'top',
+      },
+      title: {
+        display: true,
+        // text: 'Chart.js Line Chart'
+      }
+    }
+  },
+            });
+        }
+        else if (opcao == 3) {
+            grafico_um_tres.style.display = 'none'
+            grafico_dois_tres.style.display = 'none'
+            grafico_tres_tres.style.display = 'block'
+            grafico_quatro_tres.style.display = 'none'
+
+            var ctx3 = document.getElementById('myChart_tres_tres').getContext('2d');
+            var myChart3 = new Chart(ctx3, {
+                type: 'polarArea',
+                data: {
+                    labels: ['manhâ', 'tarde', 'noite'],
+
+                    datasets: [{
+                        label: 'Umidade x Periodo',
+                        data: [umidade_um_tres, umidade_dois_tres, umidade_tres_tres],
+
+                        backgroundColor: [
+                        `${cor_um_tres}`,
+                        `${cor_dois_tres}`,
+                        `${cor_tres_tres}`
+                        ],
+                        borderColor: [
+                        'rgb(0, 0, 0)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+    responsive: true,
+    plugins: {
+      legend: {
+        position: 'top',
+      },
+      title: {
+        display: true,
+        // text: 'Chart.js Polar Area Chart'
+      }
+    }
+  },
+            });
+        }
+        else if (opcao == 4) {
+            grafico_um_tres.style.display = 'none'
+            grafico_dois_tres.style.display = 'none'
+            grafico_tres_tres.style.display = 'none'
+            grafico_quatro_tres.style.display = 'block'
+            var ctx4 = document.getElementById('myChart_quatro_tres').getContext('2d');
+            var myChart4 = new Chart(ctx4, {
+                type: 'radar',
+                data: {
+                    labels: ['manhâ', 'tarde', 'noite'],
+
+                    datasets: [{
+                        label: 'Umidade x Periodo',
+                        data: [umidade_um_tres, umidade_dois_tres, umidade_tres_tres],
+
+                        backgroundColor: [
+                        `${cor_um_tres}`,
+                        `${cor_dois_tres}`,
+                        `${cor_tres_tres}`
+                        ],
+                        borderColor: [
+                        'rgb(0, 0, 0)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        title: {
+                            display: true,
+                            // text: 'Chart.js Radar Chart'
+                        }
+                    }
+                },
+            });
+        }
+    }
+
+    var temp_um_tres = parseInt(Math.random() * 50 + 1);
+    var temp_dois_tres = parseInt(Math.random() * 50 + 1);
+    var temp_tres_tres = parseInt(Math.random() * 50 + 1);
+
+    var cor1_tres = '';
+    var cor2_tres = '';
+    var cor3_tres = '';
+
+    if (temp_um_tres > 0) {
+
+        if (temp_um_tres >= 31) {
+            alerta1_tres.style.backgroundColor = 'red';
+            cor1_tres = 'rgb(255, 0, 0)';
+
+        } else if (temp_um_tres <= 3) {
+            alerta1_tres.style.backgroundColor = 'midnightblue';
+            cor1_tres = 'rgb(25, 25, 112)';
+
+        } else if ((temp_um_tres <= 30) && (temp_um_tres >= 28)) {
+            alerta1_tres.style.backgroundColor = 'orange';
+            cor1_tres = 'rgb(255, 165, 0)';
+
+        } else if ((temp_um_tres >= 4) && (temp_um_tres <= 6)) {
+            alerta1_tres.style.backgroundColor = 'steelblue';
+            cor1_tres = 'rgb(70, 130, 180)';
+
+        } else if ((temp_um_tres <= 27) && (temp_um_tres >= 25)) {
+            alerta1_tres.style.backgroundColor = 'yellow';
+            cor1_tres = 'rgb(255, 255, 0)';
+
+        } else if ((temp_um_tres >= 7) && (temp_um_tres <= 9)) {
+            alerta1_tres.style.backgroundColor = 'royalblue';
+            cor1_tres = 'rgb(65, 105, 225)';
+
+        } else if ((temp_um_tres <= 24) && (temp_um_tres >= 10)) {
+            alerta1_tres.style.backgroundColor = 'green';
+            cor1_tres = 'rgb(0, 128, 0)';
+        }
+
+    }
+
+    if (temp_dois_tres > 0) {
+
+        if (temp_dois_tres >= 31) {
+            alerta2_tres.style.backgroundColor = 'red';
+            cor2_tres = 'rgb(255, 0, 0)';
+
+        } else if (temp_dois_tres <= 3) {
+            alerta2_tres.style.backgroundColor = 'midnightblue';
+            cor2_tres = 'rgb(25, 25, 112)';
+
+        } else if ((temp_dois_tres <= 30) && (temp_dois_tres >= 28)) {
+            alerta2_tres.style.backgroundColor = 'orange';
+            cor2_tres = 'rgb(255, 165, 0)';
+
+        } else if ((temp_dois_tres >= 4) && (temp_dois_tres <= 6)) {
+            alerta2_tres.style.backgroundColor = 'steelblue';
+            cor2_tres = 'rgb(70, 130, 180)';
+
+        } else if ((temp_dois_tres <= 27) && (temp_dois_tres >= 25)) {
+            alerta2_tres.style.backgroundColor = 'yellow';
+            cor2_tres = 'rgb(255, 255, 0)';
+
+        } else if ((temp_dois_tres >= 7) && (temp_dois_tres <= 9)) {
+            alerta2_tres.style.backgroundColor = 'royalblue';
+            cor2_tres = 'rgb(65, 105, 225)';
+
+        } else if ((temp_dois_tres <= 24) && (temp_dois_tres >= 10)) {
+            alerta2_tres.style.backgroundColor = 'green';
+            cor2_tres = 'rgb(0, 128, 0)';
+        }
+
+    }
+
+    if (temp_tres_tres > 0) {
+
+        if (temp_tres_tres >= 31) {
+            alerta3_tres.style.backgroundColor = 'red';
+            cor3_tres = 'rgb(255, 0, 0)';
+
+        } else if (temp_tres_tres <= 3) {
+            alerta3_tres.style.backgroundColor = 'midnightblue';
+            cor3_tres = 'rgb(25, 25, 112)';
+
+        } else if ((temp_tres_tres <= 30) && (temp_tres_tres >= 28)) {
+            alerta3_tres.style.backgroundColor = 'orange';
+            cor3_tres = 'rgb(255, 165, 0)';
+
+        } else if ((temp_tres_tres >= 4) && (temp_tres_tres <= 6)) {
+            alerta3_tres.style.backgroundColor = 'steelblue';
+            cor3_tres = 'rgb(70, 130, 180)';
+
+        } else if ((temp_tres_tres <= 27) && (temp_tres_tres >= 25)) {
+            alerta3_tres.style.backgroundColor = 'yellow';
+            cor3_tres = 'rgb(255, 255, 0)';
+
+        } else if ((temp_tres_tres >= 7) && (temp_tres_tres <= 9)) {
+            alerta3_tres.style.backgroundColor = 'royalblue';
+            cor3_tres = 'rgb(65, 105, 225)';
+
+        } else if ((temp_tres_tres <= 24) && (temp_tres_tres >= 10)) {
+            alerta3_tres.style.backgroundColor = 'green';
+            cor3_tres = 'rgb(0, 128, 0)';
+        }
+
+    }
+
+    function select_tres() {
+
+        var tipo = sel_tres.value;
+        if (tipo == 1) {
+
+            grafico1_tres.style.display = 'block'
+            grafico2_tres.style.display = 'none'
+            grafico3_tres.style.display = 'none'
+            grafico4_tres.style.display = 'none'
+
+            var ctx = document.getElementById('myChart1_tres').getContext('2d');
+            var myChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['manhâ', 'tarde', 'noite'],
+
+                    datasets: [{
+                        label: 'Temperatura x Periodo',
+                        data: [temp_um_tres, temp_dois_tres, temp_tres_tres],
+
+                        backgroundColor: [
+                            `${cor1_tres}`,
+                            `${cor2_tres}`,
+                            `${cor3_tres}`
+                        ],
+                        borderColor: [
+                            'rgb(0, 0, 0)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                        },
+                        title: {
+                            display: true,
+                            // text: 'Chart.js Bar Chart'
+                        }
+                    }
+                },
+            });
+
+        } else if (tipo == 2) {
+
+            grafico1_tres.style.display = 'none'
+            grafico2_tres.style.display = 'block'
+            grafico3_tres.style.display = 'none'
+            grafico4_tres.style.display = 'none'
+            var ctx2 = document.getElementById('myChart2_tres').getContext('2d');
+            var myChart2 = new Chart(ctx2, {
+                type: 'line',
+                data: {
+                    labels: ['manhâ', 'tarde', 'noite'],
+
+                    datasets: [{
+                        label: 'Temperatura x Periodo',
+                        data: [temp_um_tres, temp_dois_tres, temp_tres_tres],
+
+                        backgroundColor: [
+                            `${cor1_tres}`,
+                            `${cor2_tres}`,
+                            `${cor3_tres}`
+                        ],
+                        borderColor: [
+                            'rgb(0, 0, 0)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                        },
+                        title: {
+                            display: true,
+                            // text: 'Chart.js Line Chart'
+                        }
+                    }
+                },
+            });
+        } else if (tipo == 3) {
+
+            grafico1_tres.style.display = 'none'
+            grafico2_tres.style.display = 'none'
+            grafico3_tres.style.display = 'block'
+            grafico4_tres.style.display = 'none'
+
+            var ctx3 = document.getElementById('myChart3_tres').getContext('2d');
+            var myChart3 = new Chart(ctx3, {
+                type: 'polarArea',
+                data: {
+                    labels: ['manhâ', 'tarde', 'noite'],
+
+                    datasets: [{
+                        label: 'Temperatura x Periodo',
+                        data: [temp_um_tres, temp_dois_tres, temp_tres_tres],
+
+                        backgroundColor: [
+                            `${cor1_tres}`,
+                            `${cor2_tres}`,
+                            `${cor3_tres}`
+                        ],
+                        borderColor: [
+                            'rgb(0, 0, 0)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                        },
+                        title: {
+                            display: true,
+                            // text: 'Chart.js Polar Area Chart'
+                        }
+                    }
+                },
+            });
+        } else if (tipo == 4) {
+
+            grafico1_tres.style.display = 'none'
+            grafico2_tres.style.display = 'none'
+            grafico3_tres.style.display = 'none'
+            grafico4_tres.style.display = 'block'
+            var ctx4 = document.getElementById('myChart4_tres').getContext('2d');
+            var myChart4 = new Chart(ctx4, {
+                type: 'radar',
+                data: {
+                    labels: ['manhâ', 'tarde', 'noite'],
+
+                    datasets: [{
+                        label: 'Temperatura x Periodo',
+                        data: [temp_um_tres, temp_dois_tres, temp_tres_tres],
+
+                        backgroundColor: [
+                            `${cor1_tres}`,
+                            `${cor2_tres}`,
+                            `${cor3_tres}`
+                        ],
+                        borderColor: [
+                            'rgb(0, 0, 0)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        title: {
+                            display: true,
+                            // text: 'Chart.js Radar Chart'
+                        }
+                    }
+                },
+            });
+        }
+    }
+
+    var resultado_um_umidade = umidade_tres;
+    var resultado_dois_umidade = umidade_dois_tres;
+    var resultado_tres_umidade = umidade_tres_tres;
+
+    var cor_um_umidade = cor_tres;
+    var cor_dois_umidade = cor_tres_dois;
+    var cor_tres_umidade = cor_tres_tres;
+
+    var ctx3 = document.getElementById('myChart_resultado').getContext('2d');
+            var myChart3 = new Chart(ctx3, {
+                type: 'polarArea',
+                data: {
+                    labels: ['1º Plantação', '2° Plantação', '3º Plantação'],
+
+                    datasets: [{
+                        label: 'Umidade x Periodo',
+                        data: [resultado_um_umidade, resultado_dois_umidade, resultado_tres_umidade],
+
+                        backgroundColor: [
+                            `${cor_um_umidade}`,
+                            `${cor_dois_umidade}`,
+                            `${cor_tres_umidade}`
+                        ],
+                        borderColor: [
+                            'rgb(0, 0, 0)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                        },
+                        title: {
+                            display: true,
+                            // text: 'Chart.js Polar Area Chart'
+                        }
+                    }
+                },
+    });
+
+    var resultado_um_temperatura = temp_tres;
+    var resultado_dois_temperatura = temp_tres_dois;
+    var resultado_tres_temperatura = temp_tres_tres;
+
+    var cor_um_temperatura = cor3;
+    var cor_dois_temperatura = cor3_dois;
+    var cor_tres_temperatura = cor3_tres;
+
+    var ctx3 = document.getElementById('myChart3_resultado').getContext('2d');
+            var myChart3 = new Chart(ctx3, {
+                type: 'polarArea',
+                data: {
+                    labels: ['1º Plantação', '2° Plantação', '3º Plantação'],
+
+                    datasets: [{
+                        label: 'Umidade x Periodo',
+                        data: [resultado_um_temperatura, resultado_dois_temperatura, resultado_tres_temperatura],
+
+                        backgroundColor: [
+                            `${cor_um_temperatura}`,
+                            `${cor_dois_temperatura}`,
+                            `${cor_tres_temperatura}`
+                        ],
+                        borderColor: [
+                            'rgb(0, 0, 0)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                        },
+                        title: {
+                            display: true,
+                            // text: 'Chart.js Polar Area Chart'
+                        }
+                    }
+                },
+    });
+
+</script>

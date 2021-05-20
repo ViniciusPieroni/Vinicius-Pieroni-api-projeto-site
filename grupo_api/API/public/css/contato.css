@@ -1,0 +1,11 @@
+.titulo_equipe{
+    text-align: center;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 3rem;
+}
+
+.color_title{
+    color: #00913D;
+}

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ptbr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/cadastro.css">
+    <title>Cadastro</title>
+</head>
+
+<body class="body_cadastro">
+    <!--   CABEÇALHO   -->
+    <div class="header">
+        <div class="container">
+            <img class="logo" src="img/lettutech2.png" alt="Logo lettutech" />
+            <nav>
+                <ul>
+                    <li><a href="index.html">Serviços</a></li>
+                    <li><a href="contato.html">Sobre nós</a></li>
+                    <li><a href="cadastro.html" style="color:#00913D">Aderir</a></li>
+                    <li><a href="login.html">Login</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <!--    Cadastro    -->
+
+    <div class="container_cadastro">
+
+        <div class="caixa">
+
+            <h1 id="titulo_cadastro">FAÇA AQUI O SEU CADASTRO</h1><br>
+            <form id="form_cadastro" method="post" onsubmit="return cadastrar()">
+                <h2>Nome completo:</h2>
+                <input size="70" type="text" name="nome" id="inp_nome" class="inp_cadastro" required minlength="4">
+
+                <h2>Email:</h2>
+                <input size="70" type="email" name="email" id="inp_email" class="inp_cadastro" required minlength="4">
+
+                <h2>Senha:</h2>
+                <input size="20" type="password" name="senha" id="inp_senha" class="inp_cadastro" required
+                    minlength="4">
+
+                <div class="caixa_checkbox">
+                    <h2> Noticias diarias?
+                        <input type="checkbox" class="check">
+                    </h2>
+                </div>
+
+                <input type="submit" id="btn_entrar" value="Cadastrar" class="btn-green"><br>
+
+        </div>
+        </form>
+        <div class="frase_efeito">
+            <h1 id="titulo_cadastro">Venha fazer parte desta iniciativa revolucionária!</h1>
+            <img src="https://media.giphy.com/media/xTiTnl2gE4jRamfPnW/giphy.gif" alt="">
+        </div>
+
+    </div>
+
+
+    <!--   RODAPE   -->
+    <div class="footer">
+        <div class="container">
+            <div class="todas_footer_box">
+                <!--sobre nós-->
+                <div class="footer_text">
+                    <h3>Empresa</h3>
+                    <img src="img/lettutech3.png" alt="logo" />
+                </div>
+                <!--contato-->
+                <div class="footer_text">
+                    <h3>Contato</h3>
+                    <span>
+                        (11)98765-4321 <br />
+                        equipelettutech@gmail.com
+                    </span>
+                </div>
+                <!--social medias-->
+                <div class="footer_text">
+                    <h3>Redes sociais</h3>
+                    <img src="img/telegram.png" alt="telegram" id="telegram" title="telegram" />
+                    <a href="https://www.facebook.com/Lettutech-100352942202861["> <img src="img/face.png"
+                            alt="facebook" id="facebook" title="facebook" /> </a>
+                    <a href="https://www.instagram.com/lettutech/?hl=pt-br"> <img src="img/insta.png" alt="instagram"
+                            id="instagram" title="instagram" /> </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
+<script>
+
+    function cadastrar() {
+        var email = inp_email.value;
+
+            if (email.indexOf('@') == -1 && email.indexOf('.com') == -1) {
+                // o valor será verdadeiro quando estiver sem @ ou .com, ou seja, retornar um valor do indexOf igual à -1
+
+                alert(`O email ${email} é um email INVÁLIDO`);
+
+            } else {
+        var formulario = new URLSearchParams(new FormData(form_cadastro));
+        fetch("/usuarios/cadastrar", {
+            method: "POST",
+            body: formulario
+        }).then(function (response) {
+            
+
+
+                    if (response.ok) {
+                        window.location.href = 'cadastro_confir.html';
+                        
+                    }
+ 
+            
+        });
+    }
+
+        return false;
+
+    }
+
+
+</script>

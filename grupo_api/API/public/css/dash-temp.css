@@ -1,0 +1,41 @@
+.container-apr{
+    max-width: 65%;
+    height: 100%;
+    margin: 2vh auto;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+}
+
+.container-apr h2{
+    font-size: 1.5rem;
+    margin-top: 1vh;
+}
+
+.container-apr img{
+    margin-top: 1vh;
+    margin-bottom: 2vh;
+}
+
+.container-graficos{
+    max-width: 90%;
+    max-height: 50vh;
+    margin: 0 auto;
+}
+
+.box-grafico{
+    font-family: 'Nunito', sans-serif;
+    font-size: 1.5rem;
+    font-weight: bold;
+    display: inline-flex;
+    margin-left: 2vw;
+}
+
+.grafico-ind{
+    width: 27.5vw;
+}
+
+.div_alerta{
+    width: 27.5vw;
+    height: 3vh;
+    background-color: #232323;
+}

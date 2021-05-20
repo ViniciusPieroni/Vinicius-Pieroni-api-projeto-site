@@ -1,0 +1,67 @@
+  
+body {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    cursor: context-menu;
+    background-color: rgb(218, 214, 214);
+}
+
+.pag-login {
+    height: 55vh;
+}
+
+.container_login {
+    margin: 0 auto;
+    width: 30%;
+    text-align: center;
+}
+
+.box-login {
+    margin-top: 12vh;
+    background-color: white;
+    box-shadow: 1px 1px 3px #232323;
+    border-radius: 1rem;
+}
+
+.box-login h1 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 40px;
+    color: #00913D;
+    padding: 5vh 0;
+}
+
+.box-login span {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 1.5rem
+}
+
+.box-login .sn {
+    color: white;
+}
+
+.inp_login {
+    font-size: larger;
+    margin: 1vh 0;
+    height: 2vh;
+    border-radius: 0.2rem;
+    border: 3px solid #232323;
+    background-color: transparent;
+    color: #232323;
+    font-weight: bold;
+    padding-top: 4px;
+}
+
+.btn-green {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.2rem;
+    color:white;
+    background-color: #00913D;
+    border: none;
+    border-radius: 0.5rem;
+    padding: 0.5vh 0.5vw;
+    margin-top: 2vh;
+    margin-bottom: 8vh;
+    cursor: pointer;
+}

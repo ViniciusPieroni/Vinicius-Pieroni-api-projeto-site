@@ -1,0 +1,449 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/*
+font-family: 'Poppins', sans-serif;
+font-family: 'Nunito Sans', sans-serif;
+*/
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+body{
+    background-color: rgb(240, 240, 240);
+    cursor: context-menu;
+}
+
+a:link{
+    text-decoration: none;
+}
+
+a{
+    color: white;
+}
+
+
+/*------- HEADER --------*/
+.header{
+    width: 100%;
+    height: 13vh;
+    background-color: #202020;
+    margin: 0;
+    border-bottom: 0.5vh solid #00913D;
+}
+
+.container{
+    max-width: 65%;
+    height: 100%;
+    margin: 0 auto;
+}
+
+.container .logo{
+    height: 5rem;
+    float:left;
+    margin-top: 1.5vh;
+    cursor: pointer;
+}
+
+.container nav{
+    color: white;
+    list-style: none;
+    float: right;
+    margin-top: 1.5vh;
+}
+
+.container ul{
+    padding-top: 4vh;
+}
+
+.container li{
+    font-family: 'Nunito Sans', sans-serif;
+    display: inline-block;
+    margin-left: 1.5rem;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.li_color{
+    color:#00913D;
+}
+
+
+/*------- APRESENTAÇÃO --------*/
+.apr{
+    text-align: center;
+    background-image: url(../img/fundo_site1.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 60vh;
+}
+
+/*reutilizando o container do header*/
+.apr .container{
+    padding-top: 16vh;
+}
+
+.container .titulo_apr{
+    font-family: 'Poppins', sans-serif;
+    font-size: 3.5rem;
+    text-shadow: 2px 2px 5px black; /*<--------- É O JOÃO   */
+    color:white;
+    margin: 0;
+}
+
+.container .btn_apr{
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    border: none;
+    border-radius: 0.5rem;
+    background-color: #00913D;
+    box-shadow: 2px 2px 5px black;
+    color:white;
+    margin-top: 2rem;
+    width: 12vw;
+    height: 5vh;
+    cursor: pointer;
+}
+
+.linha_verde{
+    background-color: #00913D;
+    width: 100%;
+    height: 0.5vh;
+}
+
+
+/*------- QUEM SOMOS --------*/
+/*reutilizando o container do header*/
+.QS .container{
+    padding-top: 6vh;
+}
+
+.titulo_QS{
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 2.5rem;
+    margin:0;
+}
+
+.linha_titulo1{
+    background-color: #00913D;
+    width: 5vw;
+    height: 1vh;
+}
+
+.QS .txt_QS{
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.2rem;
+    margin-top: 6vh;
+}
+
+/*CARDS DA EQUIPE*/
+.cards_total{
+    margin: 8rem auto;
+    grid-gap: inherit;
+}
+/*formatei os cards individuais*/
+.cards{
+    height: 20vh;
+    width: 15%;
+    background-color: white;
+    display: inline-grid;
+    border: black solid 2px;
+    border-radius: 0.5rem;
+    max-width: 65%;
+    text-align: center;
+    padding: 2vh 0;
+    margin: 0.2rem;
+}
+
+/*formatação da imagem do card*/
+.cards img{
+    height: 10vh;
+    border-radius: 50rem;
+    margin: auto;
+}
+
+/*formatação do nome do card*/
+.cards h6{
+    font-family: 'Nunito', sans-serif;
+    font-size: 1.4rem;
+    margin:0;
+}
+
+/*formatação do texto do card*/
+.cards p{
+    font-family: 'Nunito', sans-serif;
+}
+
+
+/*------- SERVIÇOS --------*/
+/*reutilizei os container do Quem somos*/
+.linha_titulo2{
+    background-color: #00913D;
+    width: 5vw;
+    height: 1vh;
+}
+
+.imagens_PQ{
+    margin: 5rem 18rem;
+    display: inline-grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 5rem; 
+}
+
+.img_text_PQ{
+    font-family: 'Nunito Sans', sans-serif;
+    text-align: center;
+    width: 18vw;
+}
+
+.img_text_PQ img{
+    width: 15vh;
+    /* margin: 2vh auto; */
+}
+
+.img_text_PQ h3{
+    margin: 0;
+}
+
+/*----------- COMO FAZEMOS ------------*/
+.CF{
+    padding-bottom: 6vh;
+}
+
+.CF .linha_titulo3{
+    background-color: #00913D;
+    width: 12vw;
+    height: 1vh;
+}
+
+.CF .container_CF{
+    padding-top: 6vh;
+    max-width: 80%;
+    margin: 0 auto;
+    height: 35vh;
+}
+
+.imagens_CF{
+    float: left;
+    margin-right: 5vw;
+}
+
+.CF .img_CF{
+    height: 30vh;
+}
+
+.CF .txt_CF{
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.2rem;
+    padding-top: 5vh;
+}
+
+/*----------- CONTATO ------------*/
+.contato{
+    padding: 6vh 0;
+}
+
+.titulo_contato{
+    text-align: center;
+}
+
+.contato .linha_titulo4{
+    margin: 0 auto;
+    background-color: #00913D;
+    width: 8vw;
+    height: 1vh;
+}
+
+.contato .txt_contato{
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    padding-top: 3vh;
+}
+
+.imagens_contato{
+    display: inline-grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 4rem;
+    margin: 3rem 18rem;
+}
+
+.imagens_contato .tele_email{
+    background-color: white;
+    min-height: 10vh;
+    min-width: 15vw;
+    border-radius: 3vh;
+}
+
+.imagens_contato .img_text{
+    text-align: center;
+    padding: 0.6rem;
+}
+
+.tele_email{
+    cursor: pointer;
+}
+
+.tele_email img{
+    height: 7vh;
+    margin-top: 2vh;
+}
+
+.tele_email h6{
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.8rem;
+    margin: 2vh 0;
+}
+
+
+/*------- HOLDER --------*/
+.footer{
+    background-image: url(../img/rodape.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 20vh;
+    border-top: 0.5vh solid #00913D;
+}
+
+.footer .container{
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    padding-top: 5vh;
+    max-width: 100%;
+    margin: 0 60px;
+}
+
+.todas_footer_box{
+    margin: 0 25vw;
+}
+
+.footer_text{
+    font-family: 'Nunito Sans', sans-serif;
+    display: inline-block;
+    min-width: 5vw;
+    margin: 0 2vw;
+}
+
+.footer_text h3{
+    margin-bottom: 2vh;
+}
+
+.footer_text span{
+    font-size: 0.8rem;    
+}
+
+.footer_text img{
+    margin: 0 0.2vw;
+    height: 5vh;    
+}
+
+.footer_text .logo{
+    margin-bottom: 2vh;
+    height: 7vh;
+}
+
+::placeholder {
+    color: white;
+}
+
+#btn-email {
+    cursor: pointer;
+}
+
+#btn-telefone {
+    cursor: pointer;
+}
+
+#verde {
+    color:#00c251;
+    font: bold;
+}
+
+.footer_text img {
+    cursor: pointer;
+}
+
+@media screen and (max-width: 1680px){
+    .content-solucao {grid-template-columns: 1fr 0.5fr;}
+    .text{white-space: inherit;font-size:1em;}
+    .sobre-nos-img img {width: 45em;}
+}
+@media screen and (max-width: 1400px){
+    .hero-img img{width: 40em;} 
+    .sobre-nos-img img {width: 35em;}
+}
+@media screen and (max-width: 1380px){
+    .content-hero{grid-gap: 5em;}
+    .hero-img img {width: 32em;}
+    .hero h1{font-size: 3em;}
+    .hero p{font-size: 0.8em;white-space:inherit;}
+    .title{font-size: 3em;}
+    .text{white-space: inherit;font-size: 0.9em;}
+    .content-ad-simulacao h1{font-size:3em;}
+    .nav-footer{grid-gap: 5em;}
+}
+@media screen and (max-width: 1024px){
+    .container-ad-simulacao{padding: 5em 2em;height:inherit;}
+    .content-sobre{grid-template-columns: 1fr;grid-gap:inherit;}
+    .icone{display: grid;grid-template-columns: 1fr;padding: 1em 0;text-align:center;}
+    .text,.title{text-align: center;}
+    .icone article{display:flex;flex-direction:column;align-items:center;}
+    .sobre-nos-img{display:flex;justify-content: center;}
+    .content-solucao{grid-template-columns: 1fr;}
+    .hero{padding: 0 2em;}
+    .content-hero{grid-gap:0;}
+}
+@media screen and (max-width: 960px){
+        .nav ul{display: none;}
+        .btn-nav{display: none;}
+        .container-hero{align-items:center;text-align:center;}
+        .hero p{text-align: center;}
+        .content-hero{grid-template-columns:1fr;}
+        .hero-img{display:none;}
+        .content-planos{display: block;}
+        .open-menu-icon{
+            display: block;
+            position: absolute;
+            top: 0;
+            right: 0;
+            transform: translate(-100%,85%);
+            font-size: 1.8rem;
+            cursor: pointer;
+        }
+        .close-menu-icon{
+            position: absolute;
+            top: 0;
+            right: 0;
+            transform: translate(-100%,85%);
+            font-size: 1.8rem;
+            cursor: pointer;
+        }
+        .open-menu-icon svg,.open-menu-icon svg {font-size: 1em;}
+        .footer {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+            align-items: center;
+            position: unset;
+        }
+        .container-footer {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 1.5em 3em 0;
+        }
+        .nav-footer {
+            display: flex;
+            width: auto;
+            text-align: center;
+            flex-direction: column;
+            grid-gap: 0;
+        }
+    }
+    @media screen and (max-width: 640px){
+        .sobre-nos-img img {width: 22em;}
+    }

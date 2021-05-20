@@ -1,0 +1,29 @@
+.container-apr{
+    max-width: 65%;
+    height: 100%;
+    margin: 10vh auto;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+}
+
+.container-apr h1{
+    color: #00913D;
+    font-size: 3rem;
+}
+
+.container-apr h2{
+    font-size: 2rem;
+    margin-top: 3vh;
+}
+
+.container-btn .btn{
+    font-family: 'Nunito', sans-serif;
+    font-size: 1rem;
+    font-weight: bold;
+    color: white;
+    background-color: #00913D;
+    margin-top: 2vh;
+    padding: 1vh 1vw;
+    border-radius: 0.5rem;
+    cursor: pointer;
+}

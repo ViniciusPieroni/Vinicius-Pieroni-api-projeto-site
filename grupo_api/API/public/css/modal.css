@@ -1,0 +1,66 @@
+.modal {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    font-family: 'Nunito Sans', sans-serif;
+    background: rgba(34, 31, 31, 0.8);
+    opacity: 0;
+    transition: opacity 400ms ease-in;  /*define a transição para apresentar e sair a modal*/
+    pointer-events: none;
+}
+
+.modal:target {  /* define qual é o "alvo" que irá finalizar a minha modal, */
+    opacity: 1;
+    pointer-events: auto;   /* onde é representado pela referência "#" no index dentro da div criada na classe modal */
+}
+
+.modal .sensor1 {
+    width: min-content;
+    position: relative;
+    text-align: center;
+    margin: 0;
+    margin: 10% auto;
+    padding: 15px 20px;
+    background: rgb(221, 247, 250);
+}
+
+.modal h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 3.5rem;
+    text-shadow: 2px 2px 5px white;
+    /*<--------- É O JOÃO  --> */
+    color: rgb(64, 146, 156);
+}
+
+.modal p {
+    font-size: larger;
+}
+
+.modal .sensor2 {
+    width: min-content;
+    position: relative;
+    margin: 10% auto;
+    text-align: center;
+    padding: 15px 20px;
+    background-color: rgb(221, 247, 250);
+}
+
+.fechar {
+    position: absolute;
+    width: 30px;
+    right: -15px;
+    top: -20px;
+    text-align: center;
+    line-height: 30px;
+    margin-top: 5px;
+    background: #ff4545;
+    border-radius: 50%;
+    font-size: 16px;
+    color: #8d0000;
+}
+
+.img_m {
+    width: 850px;
+}
